@@ -23,6 +23,12 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 ###############################################
+# rbenv 
+###############################################
+
+eval "$(rbenv init - zsh)"
+
+###############################################
 # nvm deeper shell integration https://github.com/nvm-sh/nvm?tab=readme-ov-file#deeper-shell-integration
 ###############################################
 
