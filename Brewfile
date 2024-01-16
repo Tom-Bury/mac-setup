@@ -75,7 +75,7 @@ vscode "codeandstuff.package-json-upgrade"
 
 # Tools
 vscode "adpyke.codesnap"
-vscode "pomdt≈r.excalidraw-editor"
+vscode "pomdtr.excalidraw-editor"
 vscode "ctcuff.font-preview"
 vscode "tomoki1207.pdf"
 vscode "jock.svg"
