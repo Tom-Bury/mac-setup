@@ -15,7 +15,7 @@ cask "stats"
 ###############################################
 
 # Core apps
-brew docker
+brew "docker"
 cask "visual-studio-code"
 cask "fork"
 cask "warp"
@@ -37,7 +37,7 @@ cask "zulu17"
 
 # Get path to where cask was installed to double-click installer
 brew "watchman"
-brew info --cask zulu11 # For RN v0.68
+cask "zulu11" # For RN v0.68
 cask "android-studio"
 cask "react-native-debugger"
 
@@ -75,7 +75,7 @@ vscode "codeandstuff.package-json-upgrade"
 
 # Tools
 vscode "adpyke.codesnap"
-vscode "pomdtr.excalidraw-editor"
+vscode "pomdt≈r.excalidraw-editor"
 vscode "ctcuff.font-preview"
 vscode "tomoki1207.pdf"
 vscode "jock.svg"
