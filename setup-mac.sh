@@ -16,6 +16,8 @@ setup_homebrew() {
   if test ! $(which brew); then
     echo " -> Installing..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/tom.bury/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
   brew update
   brew upgrade
