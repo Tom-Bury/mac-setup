@@ -1,0 +1,99 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "cmd+r",
+        "command": "editor.action.startFindReplaceAction",
+        "when": "editorFocus || editorIsOpen"
+    },
+    {
+        "key": "cmd+f",
+        "command": "editor.action.startFindReplaceAction",
+        "when": "editorFocus || editorIsOpen"
+    },
+    {
+        "key": "shift+ctrl+down",               // whatever keybinding you like
+        "command": "editorScroll",
+        "args": {
+          "by": "line",
+          "to": "down",
+          "revealCursor": true,  // set to true if you did want to move the cursor
+          "value": 10
+        },
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+ctrl+up",                    // whatever keybinding you like
+        "command": "editorScroll",
+        "args": {
+          "by": "line",
+          "to": "up",
+          "revealCursor": true,
+          "value": 10
+            },
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+space",           // or whatever binding you choose
+        "command": "cursorMove",
+        "args": {
+            "to": "viewPortCenter"
+        }
+    },
+    {
+        "key": "ctrl+shift+enter",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "f12",
+        "command": "-editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },    
+    {
+        "key": "ctrl+shift+=",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "alt+d alt+e",
+        "command": "testing.debugAtCursor",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+d alt+up",
+        "command": "editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+d alt+down",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+r r",
+        "command": "editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+[BracketLeft]",
+        "command": "editor.foldAll",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "cmd+[BracketRight]",
+        "command": "editor.foldRecursively",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "shift+cmd+[BracketLeft]",
+        "command": "editor.unfoldAll"
+    },
+    {
+        "key": "shift+cmd+[BracketRight]",
+        "command": "editor.unfoldRecursively",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "cmd+r cmd+e",
+        "command": "workbench.files.action.showActiveFileInExplorer"
+    }
+]

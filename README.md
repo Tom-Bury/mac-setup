@@ -9,3 +9,5 @@ Repository to save various settings and setup scripts to kickstart a Mac
 - Execute `./setup-mac.sh`, keeping an eye to provide password and input when required
   - e.g: HomeBrew installation will require an ENTER
   - e.g: certain applications will changes to System Settings to access certain features or folders
+- Update VSCode settings by copying the contents of `vscode-settings.json` into the VSCode settings file
+  - e.g: `cp vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json`

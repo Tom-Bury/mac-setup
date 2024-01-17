@@ -1,0 +1,74 @@
+{
+    "material-icon-theme.activeIconPack": "react_redux",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDragAndDrop": false,
+    "editor.stickyScroll.enabled": true,
+    "editor.suggestSelection": "first",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.padding.top": 10,
+    "editor.cursorSurroundingLines": 1,
+    "editor.cursorStyle": "block",
+    "editor.fastScrollSensitivity": 2,
+    "editor.accessibilitySupport": "off",
+    "editor.minimap.enabled": false,
+    "editor.guides.bracketPairs": true,
+    "editor.unicodeHighlight.invisibleCharacters": true,
+    "editor.unicodeHighlight.ambiguousCharacters": true,
+    "editor.inlineSuggest.enabled": true,
+    "git-graph.commitDetailsView.location": "Docked to Bottom",
+    "codesnap.boxShadow": "",
+    "codesnap.showWindowTitle": true,
+    "codesnap.target": "window",
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.perEditorGroup": false,
+    "workbench.editor.limit.value": 6,
+    "zenMode.fullScreen": false,
+    "search.exclude": {
+      "**/.idea/*": true,
+      "**/build/*": true,
+      "**/coverage/*": true,
+      "**/dist/*": true,
+      "**/ios/Resources/*": true,
+      "**/node_modules": false,
+      "**/node_modules/*": true,
+      "**/Pods/*": true,
+      "**/vendor/*": true
+    },
+    "search.useIgnoreFiles": false,
+    "explorer.confirmDelete": false,
+    "github.copilot.advanced": {},
+    "github.copilot.enable": {
+      "*": true,
+      "plaintext": false,
+      "markdown": true,
+      "scminput": false
+    },
+    "workbench.startupEditor": "none",
+    "files.exclude": {
+      "**/.git": false
+    },
+    "auto-close-tag.SublimeText3Mode": true,
+    "application.shellEnvironmentResolutionTimeout": 20,
+    "svg.preview.mode": "svg",
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "asciidoc.preview.lineHeight": 1.4,
+    "nxConsole.showNodeVersionOnStartup": false,
+    "terminal.integrated.hideOnStartup": "always",
+    "terminal.integrated.scrollback": 10000,
+    "window.zoomLevel": 1,
+    "asciidoc.preview.refreshInterval": 500,
+    "[css]": {
+      "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "gitlens.plusFeatures.enabled": false,
+    "diffEditor.ignoreTrimWhitespace": false
+}
