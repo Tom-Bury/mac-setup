@@ -87,6 +87,8 @@ setup_dock() {
   defaults write com.apple.dock "show-recents" -bool "false"
   # Enable scroll up on a Dock icon to show all Space's opened windows for an app
   defaults write com.apple.dock "scroll-to-open" -bool "true"
+  # Scale apps when minifying instead of the default genie effect
+  defaults write com.apple.dock "mineffect" -string "scale"
   
   killall Dock
 }
