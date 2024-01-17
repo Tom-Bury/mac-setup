@@ -95,5 +95,9 @@
     {
         "key": "cmd+r cmd+e",
         "command": "workbench.files.action.showActiveFileInExplorer"
+    },
+    {
+        "key": "ctrl+cmd+enter",
+        "command": "workbench.panel.chat.view.copilot.focus"
     }
 ]
