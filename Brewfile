@@ -81,6 +81,8 @@ vscode "tomoki1207.pdf"
 vscode "jock.svg"
 vscode "george-alisson.html-preview-vscode"
 vscode "eriklynd.json-tools"
+vscode "firsttris.vscode-jest-runner" # running or debugging a specific test or test-suite
+vscode "Orta.vscode-jest" # running your current test-suite everytime you change it.
 
 # Copilot
 vscode "GitHub.copilot"
