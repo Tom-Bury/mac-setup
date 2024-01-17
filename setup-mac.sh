@@ -21,7 +21,7 @@ setup_homebrew() {
   fi
   brew update
   brew upgrade
-  echo " -> HomeBrew installed  ✅"
+  echo -e " -> HomeBrew installed  ✅\n\n"
 }
 
 download_homebrew_apps() {
@@ -30,7 +30,7 @@ download_homebrew_apps() {
   # https://github.com/Homebrew/homebrew-bundle
   echo "Installing HomeBrew apps"
   brew bundle --file="$(dirname "$0")/Brewfile"
-  echo " -> HomeBrew apps installed  ✅"
+  echo -e " -> HomeBrew apps installed  ✅\n\n"
 }
 
 require_password_on_sleep() {
@@ -106,16 +106,16 @@ setup_osx_preferences() {
   expand_save_and_print_dialogs
   setup_dock
   setup_mission_control
-  echo " -> OSX preferences set  ✅"
+  echo -e " -> OSX preferences set  ✅\n\n"
 }
 
 safe_create_folder() {
   folder_path=$1
   if [[ ! -d $folder_path ]]; then
     mkdir $folder_path
-    echo "Created $folder_path folder"
+    echo -e "Created $folder_path folder ✅\n\n"
   else
-    echo "$folder_path folder already exists ✅"
+    echo -e "$folder_path folder already exists ✅\n\n"
   fi
 }
 
@@ -123,19 +123,21 @@ setup_dotfiles() {
   echo "Setting up dotfiles"
   
   if [[ -f "$HOME/.zshrc" ]]; then
-    echo ".zshrc already found. Please check it manually"
+    echo ".zshrc already found. Please check it manually 👁️"
   else
     cp "$(dirname "$0")/.zshrc" "$HOME/.zshrc"
   fi
   
-  echo " -> Dotfiles set up  ✅"
+  echo -e " -> Dotfiles set up  ✅\n\n"
 }
 
 setup_nvm() {
   # https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
+  echo "Setting up NVM"
   if test ! "$(command -v nvm)"; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
   fi
+  echo -e " -> NVM set up  ✅\n\n"
 }
 
 
@@ -149,6 +151,3 @@ setup_dotfiles
 setup_nvm
 setup_homebrew
 download_homebrew_apps
-
-
-
