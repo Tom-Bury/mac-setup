@@ -52,6 +52,7 @@ cask "whatsapp"
 cask "gimp"
 cask "discord"
 brew "onedrive"
+cask "messenger"
 
 
 ###############################################
