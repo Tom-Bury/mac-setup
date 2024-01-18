@@ -19,8 +19,6 @@ brew "docker"
 cask "visual-studio-code"
 cask "fork"
 cask "warp"
-cask "microsoft-remote-desktop"
-brew "rbenv"
 
 # Utilities
 cask "provisionql"
@@ -30,12 +28,13 @@ cask "minisim"
 brew "xcodes"
 cask "kdiff3"
 cask "vnc-viewer"
+cask "microsoft-remote-desktop"
+cask "azure-data-studio"
 
 # React-Native
+brew "rbenv"
 tap "homebrew/cask-versions"
 cask "zulu17"
-
-# Get path to where cask was installed to double-click installer
 brew "watchman"
 cask "zulu11" # For RN v0.68
 cask "android-studio"
