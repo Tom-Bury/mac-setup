@@ -67,3 +67,9 @@ load-nvmrc() {
 
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+###############################################
+# Starship prompt https://starship.rs/
+###############################################
+
+eval "$(starship init zsh)"

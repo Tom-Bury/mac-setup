@@ -19,6 +19,7 @@ cask "docker"
 cask "visual-studio-code"
 cask "fork"
 cask "warp"
+brew "starship"
 
 # Utilities
 cask "provisionql"
@@ -53,8 +54,11 @@ cask "discord"
 brew "onedrive"
 cask "messenger"
 
+tap "homebrew/cask-fonts"
+cask "font-fira-code-nerd-font"
 
-###############################################
+
+##############################################
 # VSCode plugins
 ###############################################
 
