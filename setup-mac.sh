@@ -89,6 +89,8 @@ setup_dock() {
   defaults write com.apple.dock "scroll-to-open" -bool "true"
   # Scale apps when minifying instead of the default genie effect
   defaults write com.apple.dock "mineffect" -string "scale"
+  # Decrease Dock animation speed
+  defaults write com.apple.dock expose-animation-duration -float 0.1
   
   killall Dock
 }
@@ -100,9 +102,16 @@ setup_mission_control() {
   killall Dock
 }
 
+setup_typing_preferences() {
+  # Disable smart quotes and dashes as they’re annoying when typing code
+  defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+  defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+}
+
 setup_osx_preferences() {
   echo "Setting up OSX preferences"
   require_password_on_sleep
+  setup_typing_preferences
   setup_finder
   enable_snap_to_grid
   expand_save_and_print_dialogs
