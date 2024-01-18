@@ -15,7 +15,7 @@ cask "stats"
 ###############################################
 
 # Core apps
-brew "docker"
+cask "docker"
 cask "visual-studio-code"
 cask "fork"
 cask "warp"
