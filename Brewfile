@@ -72,6 +72,7 @@ vscode "ionutvmi.path-autocomplete"
 vscode "nrwl.angular-console"
 vscode "YoavBls.pretty-ts-errors"
 vscode "codeandstuff.package-json-upgrade"
+vscode "dbaeumer.vscode-eslint"
 
 # Tools
 vscode "adpyke.codesnap"
