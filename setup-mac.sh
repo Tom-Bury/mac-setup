@@ -12,31 +12,39 @@
 ROOT_DIR="$(dirname "$0")"
 DATETIME_FORMAT="%Y-%m-%d_%H-%M-%S"
 
-setup_homebrew() {
+print_header() {
+  echo "=== $1 ==="
+}
+
+print_footer() {
+  echo "=== $1 ✅ ==="
+  echo ""
+}
+
+install_homebrew() {
   # https://brew.sh/
-  echo "Setting up HomeBrew"
+  print_header "Installing HomeBrew 🍺" 
   if test ! $(which brew); then
-    echo " -> Installing..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/tom.bury/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
   brew update
   brew upgrade
-  echo -e " -> HomeBrew installed  ✅\n\n"
+  print_footer "HomeBrew installed"
 }
 
 download_homebrew_apps() {
   # Install any Homebrew packages, Mac Apps or VSCode extensions using a Brewfile
   # https://docs.brew.sh/Manpage#bundle-subcommand
   # https://github.com/Homebrew/homebrew-bundle
-  echo "Installing HomeBrew apps"
+  print_header "Downloading HomeBrew apps 📱"
   brew bundle --file="$ROOT_DIR/Brewfile"
-  echo -e " -> HomeBrew apps installed  ✅\n\n"
+  print_footer "HomeBrew apps downloaded"
 }
 
 setup_zsh() {
-  echo "Setting up ZSH"
+  print_header "Setting up ZSH 🐚"
   
   # Use Oh My ZSH mainly for plugins
   # https://github.com/ohmyzsh/ohmyzsh
@@ -77,7 +85,8 @@ setup_zsh() {
   fi
 
   source $HOME/.zshrc
-  echo -e " -> ZSH set up  ✅\n\n"
+  
+  print_footer "ZSH set up"
 }
 
 require_password_on_sleep() {
@@ -103,8 +112,6 @@ setup_finder() {
   defaults write NSGlobalDomain "NSToolbarTitleViewRolloverDelay" -float "0"
   # Keep folders on top when sorting by name
   defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
-
-  killall Finder
 }
 
 enable_snap_to_grid() {
@@ -112,8 +119,6 @@ enable_snap_to_grid() {
   /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" $HOME/Library/Preferences/com.apple.finder.plist
   /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" $HOME/Library/Preferences/com.apple.finder.plist
   /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" $HOME/Library/Preferences/com.apple.finder.plist
-
-  killall Finder
 }
 
 expand_save_and_print_dialogs() {
@@ -121,8 +126,6 @@ expand_save_and_print_dialogs() {
   defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
   defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
   defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
-
-  killall Finder
 }
 
 setup_dock() {
@@ -138,15 +141,11 @@ setup_dock() {
   defaults write com.apple.dock "mineffect" -string "scale"
   # Decrease Dock animation speed
   defaults write com.apple.dock expose-animation-duration -float 0.1
-  
-  killall Dock
 }
 
 setup_mission_control() {
   # Group windows by application
   defaults write com.apple.dock "expose-group-apps" -bool "true"
-  
-  killall Dock
 }
 
 setup_typing_preferences() {
@@ -156,7 +155,8 @@ setup_typing_preferences() {
 }
 
 setup_osx_preferences() {
-  echo "Setting up OSX preferences"
+  print_header "Setting up OSX preferences 🖥"
+  
   require_password_on_sleep
   setup_typing_preferences
   setup_finder
@@ -164,36 +164,45 @@ setup_osx_preferences() {
   expand_save_and_print_dialogs
   setup_dock
   setup_mission_control
-  echo -e " -> OSX preferences set  ✅\n\n"
+
+  killall Finder
+  killall Dock
+
+  print_footer "OSX preferences set up"
 }
 
 safe_create_folder() {
   folder_path=$1
   if [[ ! -d $folder_path ]]; then
     mkdir $folder_path
-    echo -e "Created $folder_path folder ✅\n\n"
+    echo -e "- created $folder_path folder 🆕"
   else
-    echo -e "$folder_path folder already exists ✅\n\n"
+    echo -e "- $folder_path folder already exists 🗂"
   fi
+}
+
+create_folders() {
+  print_header "Creating folders 📂"
+  safe_create_folder $HOME/personal
+  safe_create_folder $HOME/personal/code
+  safe_create_folder $HOME/work
+  safe_create_folder $HOME/work/code
+  print_footer "Folders created"
 }
 
 setup_nvm() {
-  # https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
-  echo "Setting up NVM"
+  print_header "Setting up NVM 📦"
   if test ! "$(command -v nvm)"; then
+    # https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
   fi
-  echo -e " -> NVM set up  ✅\n\n"
+  print_footer "NVM set up"
 }
-
 
 sudo -v # Ask for the administrator password upfront
 setup_osx_preferences
-safe_create_folder $HOME/personal
-safe_create_folder $HOME/personal/code
-safe_create_folder $HOME/work
-safe_create_folder $HOME/work/code
+create_folders
+install_homebrew
+download_homebrew_apps
 setup_zsh
 setup_nvm
-setup_homebrew
-download_homebrew_apps
