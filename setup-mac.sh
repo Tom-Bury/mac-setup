@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Inspiration - General script
 #
@@ -9,6 +9,8 @@
 # - https://gist.github.com/MatthewMueller/e22d9840f9ea2fee4716
 # - https://macos-defaults.com/
 
+ROOT_DIR="$(dirname "$0")"
+DATETIME_FORMAT="%Y-%m-%d_%H-%M-%S"
 
 setup_homebrew() {
   # https://brew.sh/
@@ -29,8 +31,53 @@ download_homebrew_apps() {
   # https://docs.brew.sh/Manpage#bundle-subcommand
   # https://github.com/Homebrew/homebrew-bundle
   echo "Installing HomeBrew apps"
-  brew bundle --file="$(dirname "$0")/Brewfile"
+  brew bundle --file="$ROOT_DIR/Brewfile"
   echo -e " -> HomeBrew apps installed  ✅\n\n"
+}
+
+setup_zsh() {
+  echo "Setting up ZSH"
+  
+  # Use Oh My ZSH mainly for plugins
+  # https://github.com/ohmyzsh/ohmyzsh
+  if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  fi
+
+  # Add StarShip prompt styling
+  if [ -f "$HOME/.config/starship.toml" ]; then
+    cp "$HOME/.config/starship.toml" "$HOME/.config/starship_mac-setup-backup_$(date +$DATETIME_FORMAT).toml"
+  fi
+  cp "$ROOT_DIR/starship.toml" "$HOME/.config/starship.toml"
+
+  # Add ZSH config
+  if [ -f "$HOME/.zshrc" ]; then
+    cp "$HOME/.zshrc" "$HOME/.zshrc_mac-setup-backup_$(date +$DATETIME_FORMAT)"
+  fi
+  cp "$ROOT_DIR/.zshrc" "$HOME/.zshrc"
+
+  source $HOME/.zshrc
+
+  # Set up autocomplete and syntax highlighting plugins
+  # Inspiration: https://gist.github.com/n1snt/454b879b8f0b7995740ae04c5fb5b7df
+
+  AUTOSUGGESTIONS_INSTALLATION_DIR=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  if [ ! -d $AUTOSUGGESTIONS_INSTALLATION_DIR ]; then
+    git clone --depth 1 -- https://github.com/zsh-users/zsh-autosuggestions $AUTOSUGGESTIONS_INSTALLATION_DIR
+  fi
+
+  SYNTAX_HIGHLIGHTING_INSTALLATION_DIR=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+  if [ ! -d $SYNTAX_HIGHLIGHTING_INSTALLATION_DIR ]; then
+    git clone --depth 1 -- https://github.com/zdharma-continuum/fast-syntax-highlighting.git $SYNTAX_HIGHLIGHTING_INSTALLATION_DIR
+  fi
+
+  AUTOCOMPLETE_INSTALLATION_DIR=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autocomplete
+  if [ ! -d $AUTOCOMPLETE_INSTALLATION_DIR ]; then
+    git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $AUTOCOMPLETE_INSTALLATION_DIR
+  fi
+
+  source $HOME/.zshrc
+  echo -e " -> ZSH set up  ✅\n\n"
 }
 
 require_password_on_sleep() {
@@ -62,9 +109,9 @@ setup_finder() {
 
 enable_snap_to_grid() {
   # Enabling snap-to-grid for icons on the desktop and in other icon views
-  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" $HOME/Library/Preferences/com.apple.finder.plist
+  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" $HOME/Library/Preferences/com.apple.finder.plist
+  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" $HOME/Library/Preferences/com.apple.finder.plist
 
   killall Finder
 }
@@ -130,18 +177,6 @@ safe_create_folder() {
   fi
 }
 
-setup_dotfiles() {
-  echo "Setting up dotfiles"
-  
-  if [[ -f "$HOME/.zshrc" ]]; then
-    echo ".zshrc already found. Please check it manually 👁️"
-  else
-    cp "$(dirname "$0")/.zshrc" "$HOME/.zshrc"
-  fi
-  
-  echo -e " -> Dotfiles set up  ✅\n\n"
-}
-
 setup_nvm() {
   # https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
   echo "Setting up NVM"
@@ -158,7 +193,7 @@ safe_create_folder $HOME/personal
 safe_create_folder $HOME/personal/code
 safe_create_folder $HOME/work
 safe_create_folder $HOME/work/code
-setup_dotfiles
+setup_zsh
 setup_nvm
 setup_homebrew
 download_homebrew_apps

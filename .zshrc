@@ -1,4 +1,14 @@
 ###############################################
+# ZSH setup
+###############################################
+
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME=""
+
+plugins=(zsh-autosuggestions fast-syntax-highlighting zsh-autocomplete)
+source $ZSH/oh-my-zsh.sh
+
+###############################################
 # Aliases
 ###############################################
 
@@ -7,6 +17,8 @@ alias cdpc="cd $HOME/personal/code"
 
 alias cdw="cd $HOME/work"
 alias cdwc="cd $HOME/work/code"
+
+alias cdm="cd $HOME/work/code/twipe-app-v4"
 
 alias cdroot="cd ~"
 alias cdhome="cd /"
