@@ -43,6 +43,11 @@ download_homebrew_apps() {
   print_footer "HomeBrew apps downloaded"
 }
 
+create_backup() {
+  mkdir -p "$HOME/.mac-setup-backups/"
+  cp "$1" "$HOME/.mac-setup-backups/$(basename $1)_$(date +$DATETIME_FORMAT)"
+}
+
 setup_zsh() {
   print_header "Setting up ZSH 🐚"
   
@@ -54,13 +59,13 @@ setup_zsh() {
 
   # Add StarShip prompt styling
   if [ -f "$HOME/.config/starship.toml" ]; then
-    cp "$HOME/.config/starship.toml" "$HOME/.config/starship_mac-setup-backup_$(date +$DATETIME_FORMAT).toml"
+    create_backup "$HOME/.config/starship.toml"
   fi
   cp "$ROOT_DIR/starship.toml" "$HOME/.config/starship.toml"
 
   # Add ZSH config
   if [ -f "$HOME/.zshrc" ]; then
-    cp "$HOME/.zshrc" "$HOME/.zshrc_mac-setup-backup_$(date +$DATETIME_FORMAT)"
+    create_backup "$HOME/.zshrc"
   fi
   cp "$ROOT_DIR/.zshrc" "$HOME/.zshrc"
 
@@ -174,7 +179,7 @@ setup_osx_preferences() {
 safe_create_folder() {
   folder_path=$1
   if [[ ! -d $folder_path ]]; then
-    mkdir $folder_path
+    mkdir -p $folder_path
     echo -e "- created $folder_path folder 🆕"
   else
     echo -e "- $folder_path folder already exists 🗂"
@@ -183,9 +188,7 @@ safe_create_folder() {
 
 create_folders() {
   print_header "Creating folders 📂"
-  safe_create_folder $HOME/personal
   safe_create_folder $HOME/personal/code
-  safe_create_folder $HOME/work
   safe_create_folder $HOME/work/code
   print_footer "Folders created"
 }
