@@ -25,6 +25,7 @@ alias cdhome="cd /"
 
 alias git-rst="git clean -df && git checkout -- ."
 alias git-find-tag="git rev-list -n 1"
+alias git-prune="git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done"
 
 ###############################################
 # React Native Android Studio setup https://reactnative-archive-august-2023.netlify.app/docs/next/environment-setup?package-manager=yarn&guide=native&platform=android
