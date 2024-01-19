@@ -20,6 +20,7 @@ cask "visual-studio-code"
 cask "fork"
 cask "warp"
 brew "starship"
+cask "google-chrome"
 
 # Utilities
 cask "provisionql"
