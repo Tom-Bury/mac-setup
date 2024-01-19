@@ -2,27 +2,27 @@
 format = '$all$directory$character'
 
 [aws]
-symbol = "  "
+symbol = " "
 format = "[$symbol]($style)"
 
 [buf]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [c]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [conda]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [crystal]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [dart]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [directory]
@@ -31,19 +31,19 @@ truncation_symbol = '…/'
 read_only = " 󰌾"
 
 [docker_context]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [elixir]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [elm]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [fennel]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [fossil_branch]
@@ -55,19 +55,19 @@ symbol = " "
 format = "[$symbol$branch]($style)"
 
 [golang]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [guix_shell]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [haskell]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [haxe]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [hg_branch]
@@ -79,19 +79,19 @@ ssh_symbol = " "
 format = "[$symbol]($style)"
 
 [java]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [julia]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [kotlin]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [lua]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [memory_usage]
@@ -99,23 +99,23 @@ symbol = "󰍛 "
 format = "[$symbol]($style)"
 
 [meson]
-symbol = "󰔷 "
+symbol = " 󰔷"
 format = "[$symbol]($style)"
 
 [nim]
-symbol = "󰆥 "
+symbol = " 󰆥"
 format = "[$symbol]($style)"
 
 [nix_shell]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [nodejs]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [ocaml]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [os.symbols]
@@ -160,15 +160,15 @@ Unknown = " "
 Windows = "󰍲 "
 
 [package]
-symbol = "󰏗 "
+symbol = " 󰏗"
 format = "[$symbol]($style)"
 
 [perl]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [php]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [pijul_channel]
@@ -176,29 +176,29 @@ symbol = " "
 format = "[$symbol]($style)"
 
 [python]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [rlang]
-symbol = "󰟔 "
+symbol = " 󰟔"
 format = "[$symbol]($style)"
 
 [ruby]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [rust]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [scala]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [swift]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
 
 [zig]
-symbol = " "
+symbol = " "
 format = "[$symbol]($style)"
