@@ -20,12 +20,13 @@ alias cdwc="cd $HOME/work/code"
 
 alias cdm="cd $HOME/work/code/twipe-app-v4"
 
-alias cdroot="cd ~"
-alias cdhome="cd /"
-
 alias git-rst="git clean -df && git checkout -- ."
 alias git-find-tag="git rev-list -n 1"
 alias git-prune="git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done"
+alias gitc="git commit -m"
+alias gitp="git push"
+alias gitf="git fetch"
+alias gita="git add -i"
 
 ###############################################
 # React Native Android Studio setup https://reactnative-archive-august-2023.netlify.app/docs/next/environment-setup?package-manager=yarn&guide=native&platform=android

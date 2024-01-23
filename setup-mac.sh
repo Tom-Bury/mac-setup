@@ -90,6 +90,12 @@ setup_zsh() {
   fi
 
   source $HOME/.zshrc
+
+  # Autocompletion settings
+  zstyle ':autocomplete:*' delay 0.1  # seconds (float)
+  zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
+  zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 8
+  zstyle ':autocomplete:history-search-backward:*' list-lines 8
   
   print_footer "ZSH set up"
 }
