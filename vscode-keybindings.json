@@ -1,4 +1,3 @@
-// Place your key bindings in this file to override the defaultsauto[]
 [
     {
         "key": "cmd+r",
@@ -6,29 +5,29 @@
         "when": "editorFocus || editorIsOpen"
     },
     {
-        "key": "shift+ctrl+down",               // whatever keybinding you like
+        "key": "shift+ctrl+down",
         "command": "editorScroll",
         "args": {
-          "by": "line",
-          "to": "down",
-          "revealCursor": true,  // set to true if you did want to move the cursor
-          "value": 10
+            "by": "line",
+            "to": "down",
+            "revealCursor": true,
+            "value": 10
         },
         "when": "editorFocus"
     },
     {
-        "key": "shift+ctrl+up",                    // whatever keybinding you like
+        "key": "shift+ctrl+up",
         "command": "editorScroll",
         "args": {
-          "by": "line",
-          "to": "up",
-          "revealCursor": true,
-          "value": 10
-            },
+            "by": "line",
+            "to": "up",
+            "revealCursor": true,
+            "value": 10
+        },
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+shift+space",           // or whatever binding you choose
+        "key": "ctrl+shift+space",
         "command": "cursorMove",
         "args": {
             "to": "viewPortCenter"
@@ -43,7 +42,7 @@
         "key": "f12",
         "command": "-editor.action.revealDefinition",
         "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-    },    
+    },
     {
         "key": "ctrl+shift+=",
         "command": "workbench.action.splitEditorRight"
