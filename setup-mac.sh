@@ -181,11 +181,11 @@ sync_vscode_settings() {
   fi
 }
 
-# sudo -v # Ask for the administrator password upfront
-# setup_osx_preferences
-# create_folders
-# install_homebrew
-# download_homebrew_apps
-# setup_zsh
-# setup_nvm
+sudo -v # Ask for the administrator password upfront
+setup_osx_preferences
+create_folders
+install_homebrew
+download_homebrew_apps
+setup_zsh
+setup_nvm
 sync_vscode_settings
