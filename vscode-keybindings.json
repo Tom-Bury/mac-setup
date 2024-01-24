@@ -1,8 +1,10 @@
 [
   {
-    "key": "cmd+r",
-    "command": "editor.action.startFindReplaceAction",
-    "when": "editorFocus || editorIsOpen"
+    "key": "ctrl+shift+space",
+    "command": "cursorMove",
+    "args": {
+      "to": "viewPortCenter"
+    }
   },
   {
     "key": "shift+ctrl+down",
@@ -27,16 +29,34 @@
     "when": "editorFocus"
   },
   {
-    "key": "ctrl+shift+space",
-    "command": "cursorMove",
-    "args": {
-      "to": "viewPortCenter"
-    }
+    "key": "shift+cmd+[BracketLeft]",
+    "command": "editor.unfoldAll"
   },
   {
-    "key": "ctrl+shift+enter",
-    "command": "editor.action.revealDefinition",
-    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    "key": "ctrl+shift+=",
+    "command": "workbench.action.splitEditorRight"
+  },
+  {
+    "key": "cmd+backspace cmd+j",
+    "command": "workbench.action.terminal.kill"
+  },
+  {
+    "key": "alt+r alt+e",
+    "command": "workbench.files.action.showActiveFileInExplorer"
+  },
+  {
+    "key": "shift+cmd+c",
+    "command": "workbench.panel.chat.view.copilot.focus"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-editor.action.previousMatchFindAction",
+    "when": "editorFocus"
+  },
+  {
+    "key": "f2",
+    "command": "-editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
   },
   {
     "key": "f12",
@@ -44,13 +64,59 @@
     "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
   },
   {
-    "key": "ctrl+shift+=",
-    "command": "workbench.action.splitEditorRight"
+    "key": "enter",
+    "command": "-renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
-    "key": "alt+d alt+e",
-    "command": "testing.debugAtCursor",
-    "when": "editorTextFocus"
+    "key": "shift+cmd+r",
+    "command": "-rerunSearchEditorSearch",
+    "when": "inSearchEditor"
+  },
+  {
+    "key": "cmd+r",
+    "command": "-workbench.action.reloadWindow",
+    "when": "isDevelopment && !isAuxiliaryWindowFocusedContext"
+  },
+  {
+    "key": "shift+cmd+j",
+    "command": "-workbench.action.search.toggleQueryDetails",
+    "when": "inSearchEditor || searchViewletFocus"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-workbench.action.terminal.findPrevious",
+    "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+shift+`",
+    "command": "-workbench.action.terminal.new",
+    "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "-workbench.action.terminal.openDetectedLink",
+    "when": "accessibleViewIsShown && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal'"
+  },
+  {
+    "key": "shift+cmd+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "cmd+r",
+    "command": "-workbench.action.terminal.runRecentCommand",
+    "when": "accessibilityModeEnabled && terminalFocus && terminalHasBeenCreated || accessibilityModeEnabled && terminalFocus && terminalProcessSupported || accessibilityModeEnabled && accessibleViewIsShown && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal' || accessibilityModeEnabled && accessibleViewIsShown && terminalProcessSupported && accessibleViewCurrentProviderId == 'terminal'"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm",
+    "when": "workbench.scm.active"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm",
+    "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
   },
   {
     "key": "alt+d alt+up",
@@ -68,6 +134,16 @@
     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
   },
   {
+    "key": "ctrl+shift+enter",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "cmd+r",
+    "command": "editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
     "key": "cmd+[BracketLeft]",
     "command": "editor.foldAll",
     "when": "editorTextFocus && foldingEnabled"
@@ -78,71 +154,9 @@
     "when": "editorTextFocus && foldingEnabled"
   },
   {
-    "key": "shift+cmd+[BracketLeft]",
-    "command": "editor.unfoldAll"
-  },
-  {
     "key": "shift+cmd+[BracketRight]",
     "command": "editor.unfoldRecursively",
     "when": "editorTextFocus && foldingEnabled"
-  },
-  {
-    "key": "alt+r alt+e",
-    "command": "workbench.files.action.showActiveFileInExplorer"
-  },
-  {
-    "key": "shift+cmd+c",
-    "command": "workbench.panel.chat.view.copilot.focus"
-  },
-  {
-    "key": "shift+cmd+g",
-    "command": "-editor.action.previousMatchFindAction",
-    "when": "editorFocus"
-  },
-  {
-    "key": "shift+cmd+g",
-    "command": "-workbench.action.terminal.findPrevious",
-    "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
-  },
-  {
-    "key": "shift+cmd+g",
-    "command": "-workbench.action.terminal.openDetectedLink",
-    "when": "accessibleViewIsShown && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal'"
-  },
-  {
-    "key": "shift+cmd+g",
-    "command": "workbench.view.scm",
-    "when": "workbench.scm.active"
-  },
-  {
-    "key": "ctrl+shift+g",
-    "command": "-workbench.view.scm",
-    "when": "workbench.scm.active"
-  },
-  {
-    "key": "shift+cmd+g",
-    "command": "workbench.view.scm",
-    "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
-  },
-  {
-    "key": "ctrl+shift+g",
-    "command": "-workbench.view.scm",
-    "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
-  },
-  {
-    "key": "shift+cmd+c",
-    "command": "-workbench.action.terminal.openNativeConsole",
-    "when": "!terminalFocus"
-  },
-  {
-    "key": "shift+cmd+r",
-    "command": "-rerunSearchEditorSearch",
-    "when": "inSearchEditor"
-  },
-  {
-    "key": "f2",
-    "command": "-editor.action.rename",
-    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
   },
   {
     "key": "shift+cmd+r",
@@ -150,24 +164,9 @@
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
-    "key": "enter",
-    "command": "-renameFile",
-    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-  },
-  {
-    "key": "cmd+r",
-    "command": "-workbench.action.reloadWindow",
-    "when": "isDevelopment && !isAuxiliaryWindowFocusedContext"
-  },
-  {
-    "key": "cmd+r",
-    "command": "-workbench.action.terminal.runRecentCommand",
-    "when": "accessibilityModeEnabled && terminalFocus && terminalHasBeenCreated || accessibilityModeEnabled && terminalFocus && terminalProcessSupported || accessibilityModeEnabled && accessibleViewIsShown && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal' || accessibilityModeEnabled && accessibleViewIsShown && terminalProcessSupported && accessibleViewCurrentProviderId == 'terminal'"
-  },
-  {
-    "key": "shift+cmd+j",
-    "command": "-workbench.action.search.toggleQueryDetails",
-    "when": "inSearchEditor || searchViewletFocus"
+    "key": "alt+d alt+e",
+    "command": "testing.debugAtCursor",
+    "when": "editorTextFocus"
   },
   {
     "key": "shift+cmd+j",
@@ -175,12 +174,13 @@
     "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
   },
   {
-    "key": "ctrl+shift+`",
-    "command": "-workbench.action.terminal.new",
-    "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+    "key": "shift+cmd+g",
+    "command": "workbench.view.scm",
+    "when": "workbench.scm.active"
   },
   {
-    "key": "cmd+backspace cmd+j",
-    "command": "workbench.action.terminal.kill"
+    "key": "shift+cmd+g",
+    "command": "workbench.view.scm",
+    "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
   }
 ]

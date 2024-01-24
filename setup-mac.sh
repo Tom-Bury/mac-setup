@@ -141,10 +141,6 @@ setup_nvm() {
   print_footer "NVM set up"
 }
 
-merge_json() {
-  jq -s '.[0] + .[1]' "$1" "$2"
-}
-
 overwrite_vscode_settings() {
   cp "$ROOT_DIR/vscode-settings.json" "$VSCODE_SETTINGS"
   cp "$ROOT_DIR/vscode-keybindings.json" "$VSCODE_KEYBINDINGS"
@@ -152,12 +148,12 @@ overwrite_vscode_settings() {
 }
 
 merge_vscode_settings() {  
-  merge_json "$ROOT_DIR/vscode-settings.json" "$VSCODE_SETTINGS" > "$ROOT_DIR/tmp.json"
+  jq -s '.[0] + .[1]' "$ROOT_DIR/vscode-settings.json" "$VSCODE_SETTINGS" > "$ROOT_DIR/tmp.json"
   cp $ROOT_DIR/tmp.json "$ROOT_DIR/vscode-settings.json"
   cp $ROOT_DIR/tmp.json "$VSCODE_SETTINGS"
   rm "$ROOT_DIR/tmp.json"
 
-  merge_json "$ROOT_DIR/vscode-keybindings.json" "$VSCODE_KEYBINDINGS" > "$ROOT_DIR/tmp.json"
+  jq -s 'add | unique' "$ROOT_DIR/vscode-keybindings.json" "$VSCODE_KEYBINDINGS" > "$ROOT_DIR/tmp.json"
   cp $ROOT_DIR/tmp.json "$ROOT_DIR/vscode-keybindings.json"
   cp $ROOT_DIR/tmp.json "$VSCODE_KEYBINDINGS"
   rm "$ROOT_DIR/tmp.json"
@@ -185,11 +181,11 @@ sync_vscode_settings() {
   fi
 }
 
-sudo -v # Ask for the administrator password upfront
-setup_osx_preferences
-create_folders
-install_homebrew
-download_homebrew_apps
-setup_zsh
-setup_nvm
+# sudo -v # Ask for the administrator password upfront
+# setup_osx_preferences
+# create_folders
+# install_homebrew
+# download_homebrew_apps
+# setup_zsh
+# setup_nvm
 sync_vscode_settings
