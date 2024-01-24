@@ -28,4 +28,4 @@ Backups are created in `~/.mac-setup-backup`
   - e.g: initial HomeBrew installation will require an ENTER
   - e.g: certain applications will require changes to System Settings to access certain features or folders
 - Input whether to overwrite the current VSCode settings and keybindings, or merge them with the repo ones
-  - Either way, the result will be visible in `vsc-settings.json` and `vsc-keybindings.json` in the repo
+  - Either way, the result will be visible in `vscode-settings.json` and `vscode-keybindings.json` in the repo
