@@ -32,6 +32,7 @@ cask "kdiff3"
 cask "vnc-viewer"
 cask "microsoft-remote-desktop"
 cask "azure-data-studio"
+brew "tlrc"
 
 # React-Native
 brew "rbenv"
