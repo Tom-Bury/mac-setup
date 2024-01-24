@@ -7,6 +7,8 @@
 
 ROOT_DIR="$(dirname "$0")"
 DATETIME_FORMAT="%Y-%m-%d_%H-%M-%S"
+VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User/settings.json"
+VSCODE_KEYBINDINGS="$HOME/Library/Application Support/Code/User/keybindings.json"
 
 source "$ROOT_DIR/osx-preferences.sh"
 
@@ -60,7 +62,9 @@ download_homebrew_apps() {
 
 create_backup() {
   mkdir -p "$HOME/.mac-setup-backups/"
-  cp "$1" "$HOME/.mac-setup-backups/$(basename $1)_$(date +$DATETIME_FORMAT)"
+  if [ -f "$1" ]; then
+    cp "$1" "$HOME/.mac-setup-backups/$(basename $1)_$(date +$DATETIME_FORMAT)"
+  fi
 }
 
 setup_zsh() {
@@ -73,15 +77,11 @@ setup_zsh() {
   fi
 
   # Add StarShip prompt styling
-  if [ -f "$HOME/.config/starship.toml" ]; then
-    create_backup "$HOME/.config/starship.toml"
-  fi
+  create_backup "$HOME/.config/starship.toml"
   cp "$ROOT_DIR/starship.toml" "$HOME/.config/starship.toml"
 
   # Add ZSH config
-  if [ -f "$HOME/.zshrc" ]; then
-    create_backup "$HOME/.zshrc"
-  fi
+  create_backup "$HOME/.zshrc"
   cp "$ROOT_DIR/.zshrc" "$HOME/.zshrc"
 
   source $HOME/.zshrc
@@ -115,8 +115,6 @@ setup_zsh() {
   print_footer "ZSH set up"
 }
 
-
-
 safe_create_folder() {
   folder_path=$1
   if [[ ! -d $folder_path ]]; then
@@ -143,6 +141,50 @@ setup_nvm() {
   print_footer "NVM set up"
 }
 
+merge_json() {
+  jq -s '.[0] + .[1]' "$1" "$2"
+}
+
+overwrite_vscode_settings() {
+  cp "$ROOT_DIR/vscode-settings.json" "$VSCODE_SETTINGS"
+  cp "$ROOT_DIR/vscode-keybindings.json" "$VSCODE_KEYBINDINGS"
+  print_footer "VSCode settings overwritten"  
+}
+
+merge_vscode_settings() {  
+  merge_json "$ROOT_DIR/vscode-settings.json" "$VSCODE_SETTINGS" > "$ROOT_DIR/tmp.json"
+  cp $ROOT_DIR/tmp.json "$ROOT_DIR/vscode-settings.json"
+  cp $ROOT_DIR/tmp.json "$VSCODE_SETTINGS"
+  rm "$ROOT_DIR/tmp.json"
+
+  merge_json "$ROOT_DIR/vscode-keybindings.json" "$VSCODE_KEYBINDINGS" > "$ROOT_DIR/tmp.json"
+  cp $ROOT_DIR/tmp.json "$ROOT_DIR/vscode-keybindings.json"
+  cp $ROOT_DIR/tmp.json "$VSCODE_KEYBINDINGS"
+  rm "$ROOT_DIR/tmp.json"
+
+  print_footer "VSCode settings merged and local files updated with the result. Check for changes and commit them!"
+}
+
+sync_vscode_settings() {
+  # TODO: reconsider this approach if https://github.com/microsoft/vscode/issues/195539 (allowing VSCode to use symlinked settings files) is implemented
+  print_header "Syncing VSCode settings ⚙️"
+  while [[ ! $REPLY =~ ^[OoMm]$ ]]; do
+    echo ""
+    echo "Do you want to overwrite or merge VSCode settings? (o/m)"
+    read "REPLY?Press o for overwrite, m for merge: "
+    echo ""
+  done
+
+  create_backup "$VSCODE_SETTINGS"
+  create_backup "$VSCODE_KEYBINDINGS"
+
+  if [[ $REPLY =~ ^[Oo]$ ]]; then
+    overwrite_vscode_settings
+  elif [[ $REPLY =~ ^[Mm]$ ]]; then
+    merge_vscode_settings
+  fi
+}
+
 sudo -v # Ask for the administrator password upfront
 setup_osx_preferences
 create_folders
@@ -150,3 +192,4 @@ install_homebrew
 download_homebrew_apps
 setup_zsh
 setup_nvm
+sync_vscode_settings

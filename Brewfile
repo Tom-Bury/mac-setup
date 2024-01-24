@@ -33,6 +33,7 @@ cask "vnc-viewer"
 cask "microsoft-remote-desktop"
 cask "azure-data-studio"
 brew "tlrc"
+brew "jq"
 
 # React-Native
 brew "rbenv"
