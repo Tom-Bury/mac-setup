@@ -41,12 +41,21 @@
     "command": "workbench.action.terminal.kill"
   },
   {
+    "key": "ctrl+cmd+j",
+    "command": "workbench.action.terminal.kill"
+  },
+  {
     "key": "alt+r alt+e",
     "command": "workbench.files.action.showActiveFileInExplorer"
   },
   {
     "key": "shift+cmd+c",
     "command": "workbench.panel.chat.view.copilot.focus"
+  },
+  {
+    "key": "alt+cmd+backspace",
+    "command": "-deleteFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceReadonly && !inputFocus"
   },
   {
     "key": "shift+cmd+g",
