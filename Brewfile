@@ -18,7 +18,7 @@ cask "stats"
 cask "docker"
 cask "visual-studio-code"
 cask "fork"
-cask "warp"
+cask "iterm2"
 brew "starship"
 cask "google-chrome"
 
