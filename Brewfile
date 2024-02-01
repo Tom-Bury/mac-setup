@@ -68,7 +68,6 @@ cask "font-fira-code-nerd-font"
 # Background / IDE utilities
 vscode "asciidoctor.asciidoctor-vscode"
 vscode "EditorConfig.EditorConfig"
-vscode "formulahendry.auto-close-tag"
 vscode "streetsidesoftware.code-spell-checker"
 vscode "naumovs.color-highlight"
 vscode "artdiniz.quitcontrol-vscode"
@@ -76,10 +75,16 @@ vscode "mechatroner.rainbow-csv"
 vscode "ionutvmi.path-autocomplete"
 
 # Frontend development
+vscode "formulahendry.auto-close-tag"
 vscode "nrwl.angular-console"
 vscode "YoavBls.pretty-ts-errors"
 vscode "codeandstuff.package-json-upgrade"
 vscode "dbaeumer.vscode-eslint"
+vscode "firsttris.vscode-jest-runner" # running or debugging a specific test or test-suite
+vscode "Orta.vscode-jest" # running your current test-suite everytime you change it.
+
+# Native development
+vscode "mathiasfrohlich.Kotlin"
 
 # Tools
 vscode "adpyke.codesnap"
@@ -89,8 +94,6 @@ vscode "tomoki1207.pdf"
 vscode "jock.svg"
 vscode "george-alisson.html-preview-vscode"
 vscode "eriklynd.json-tools"
-vscode "firsttris.vscode-jest-runner" # running or debugging a specific test or test-suite
-vscode "Orta.vscode-jest" # running your current test-suite everytime you change it.
 
 # Copilot
 vscode "GitHub.copilot"
