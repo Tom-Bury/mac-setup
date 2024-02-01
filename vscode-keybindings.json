@@ -37,10 +37,6 @@
     "command": "workbench.action.splitEditorRight"
   },
   {
-    "key": "cmd+backspace cmd+j",
-    "command": "workbench.action.terminal.kill"
-  },
-  {
     "key": "ctrl+cmd+j",
     "command": "workbench.action.terminal.kill"
   },
@@ -56,6 +52,11 @@
     "key": "alt+cmd+backspace",
     "command": "-deleteFile",
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "cmd+backspace",
+    "command": "-deleteFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceMoveableToTrash && !explorerResourceReadonly && !inputFocus"
   },
   {
     "key": "shift+cmd+g",
@@ -126,6 +127,11 @@
     "key": "ctrl+shift+g",
     "command": "-workbench.view.scm",
     "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
+  },
+  {
+    "key": "cmd+backspace",
+    "command": "deleteFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceMoveableToTrash && !explorerResourceReadonly && !inputFocus"
   },
   {
     "key": "alt+d alt+up",
