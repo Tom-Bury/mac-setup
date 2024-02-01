@@ -33,3 +33,4 @@ Backups are created in `~/.mac-setup-backup`
   - Open iTerm2 preferences
   - Go to General > Preferences
   - Check "Load preferences from a custom folder or URL" and set the path to the repo folder
+- In Git Fork GUI, manually add the custom commands from `/git-fork-custom-commands`

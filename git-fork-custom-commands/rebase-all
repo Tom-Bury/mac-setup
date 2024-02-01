@@ -1,0 +1,4 @@
+# Git Fork GUI custom command to rebase all branches on a specific branch
+# Make sure to use Git version 2.38.0 or later
+
+git rebase --update-refs ${ref}
