@@ -22,6 +22,8 @@ Backups are created in `~/.mac-setup-backup`
 
 ## How to use
 
+### Using the script
+
 - Install Apple command line tools (open terminal, try to some git commands which should prompt to install command line tools)
 - Clone this repo `git clone https://github.com/Tom-Bury/mac-setup.git`
 - Execute `./setup-mac.sh`, keeping an eye to provide password and input when required
@@ -29,6 +31,9 @@ Backups are created in `~/.mac-setup-backup`
   - e.g: certain applications will require changes to System Settings to access certain features or folders
 - Input whether to overwrite the current VSCode settings and keybindings, or merge them with the repo ones
   - Either way, the result will be visible in `vscode-settings.json` and `vscode-keybindings.json` in the repo
+
+### Manual extras
+
 - Manually set up iTerm2 to use the preferences stored in this repo at `iterm2/com.googlecode.iterm2.plist`:
   - Open iTerm2 preferences
   - Go to General > Preferences
