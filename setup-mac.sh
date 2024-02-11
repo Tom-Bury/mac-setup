@@ -7,10 +7,9 @@
 
 ROOT_DIR="$(dirname "$0")"
 DATETIME_FORMAT="%Y-%m-%d_%H-%M-%S"
-VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User/settings.json"
-VSCODE_KEYBINDINGS="$HOME/Library/Application Support/Code/User/keybindings.json"
 
 source "$ROOT_DIR/osx-preferences.sh"
+source "$ROOT_DIR/vscode/setup-vscode.sh"
 
 print_header() {
   echo "=== $1 ==="
@@ -141,45 +140,6 @@ setup_nvm() {
   print_footer "NVM set up"
 }
 
-overwrite_vscode_settings() {
-  cp "$ROOT_DIR/vscode-settings.json" "$VSCODE_SETTINGS"
-  cp "$ROOT_DIR/vscode-keybindings.json" "$VSCODE_KEYBINDINGS"
-  print_footer "VSCode settings overwritten"  
-}
-
-merge_vscode_settings() {  
-  jq -s '.[0] + .[1]' "$ROOT_DIR/vscode-settings.json" "$VSCODE_SETTINGS" > "$ROOT_DIR/tmp.json"
-  cp $ROOT_DIR/tmp.json "$ROOT_DIR/vscode-settings.json"
-  cp $ROOT_DIR/tmp.json "$VSCODE_SETTINGS"
-  rm "$ROOT_DIR/tmp.json"
-
-  jq -s 'add | unique' "$ROOT_DIR/vscode-keybindings.json" "$VSCODE_KEYBINDINGS" > "$ROOT_DIR/tmp.json"
-  cp $ROOT_DIR/tmp.json "$ROOT_DIR/vscode-keybindings.json"
-  cp $ROOT_DIR/tmp.json "$VSCODE_KEYBINDINGS"
-  rm "$ROOT_DIR/tmp.json"
-
-  print_footer "VSCode settings merged and local files updated with the result. Check for changes and commit them!"
-}
-
-sync_vscode_settings() {
-  # TODO: reconsider this approach if https://github.com/microsoft/vscode/issues/195539 (allowing VSCode to use symlinked settings files) is implemented
-  print_header "Syncing VSCode settings ⚙️"
-  while [[ ! $REPLY =~ ^[OoMm]$ ]]; do
-    echo ""
-    echo "Do you want to overwrite or merge VSCode settings? (o/m)"
-    read "REPLY?Press o for overwrite, m for merge: "
-    echo ""
-  done
-
-  create_backup "$VSCODE_SETTINGS"
-  create_backup "$VSCODE_KEYBINDINGS"
-
-  if [[ $REPLY =~ ^[Oo]$ ]]; then
-    overwrite_vscode_settings
-  elif [[ $REPLY =~ ^[Mm]$ ]]; then
-    merge_vscode_settings
-  fi
-}
 
 sudo -v # Ask for the administrator password upfront
 setup_osx_preferences
@@ -188,4 +148,7 @@ install_homebrew
 download_homebrew_apps
 setup_zsh
 setup_nvm
+
+print_header "Syncing VSCode settings ⚙️"
 sync_vscode_settings
+print_footer "VSCode settings synced"
