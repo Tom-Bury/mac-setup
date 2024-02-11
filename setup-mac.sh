@@ -6,44 +6,8 @@
 # - https://www.lotharschulz.info/2021/05/11/macos-setup-automation-with-homebrew/
 
 ROOT_DIR="$(dirname "$0")"
-DATETIME_FORMAT="%Y-%m-%d_%H-%M-%S"
+source "$ROOT_DIR/utils.sh"
 
-source "$ROOT_DIR/osx-preferences.sh"
-
-
-print_header() {
-  echo "=== $1 ==="
-}
-
-print_footer() {
-  echo "=== $1 ✅ ==="
-  echo ""
-}
-
-setup_osx_preferences() {
-  print_header "Setting up OSX preferences 🖥"
-  
-  require_password_on_sleep
-  setup_typing_preferences
-  setup_finder
-  enable_snap_to_grid
-  expand_save_and_print_dialogs
-  setup_dock
-  setup_mission_control
-
-  killall Finder
-  killall Dock
-
-  print_footer "OSX preferences set up"
-}
-
-
-create_backup() {
-  mkdir -p "$HOME/.mac-setup-backups/"
-  if [ -f "$1" ]; then
-    cp "$1" "$HOME/.mac-setup-backups/$(basename $1)_$(date +$DATETIME_FORMAT)"
-  fi
-}
 
 setup_zsh() {
   print_header "Setting up ZSH 🐚"
@@ -93,23 +57,6 @@ setup_zsh() {
   print_footer "ZSH set up"
 }
 
-safe_create_folder() {
-  folder_path=$1
-  if [[ ! -d $folder_path ]]; then
-    mkdir -p $folder_path
-    echo -e "- created $folder_path folder 🆕"
-  else
-    echo -e "- $folder_path folder already exists 🗂"
-  fi
-}
-
-create_folders() {
-  print_header "Creating folders 📂"
-  safe_create_folder $HOME/personal/code
-  safe_create_folder $HOME/work/code
-  print_footer "Folders created"
-}
-
 setup_nvm() {
   print_header "Setting up NVM 📦"
   if test ! "$(command -v nvm)"; then
@@ -121,11 +68,30 @@ setup_nvm() {
 
 
 sudo -v # Ask for the administrator password upfront
-setup_osx_preferences
-create_folders
 
-source "$ROOT_DIR/homebrew/setup-homebrew.sh"
+print_header "Setting up OSX preferences 🖥"
+source "$ROOT_DIR/osx/setup-osx.sh"
+require_password_on_sleep
+setup_typing_preferences
+setup_finder
+enable_snap_to_grid
+expand_save_and_print_dialogs
+setup_dock
+setup_mission_control
+
+killall Finder
+killall Dock
+print_footer "OSX preferences set up"
+
+
+print_header "Creating folders 📂"
+safe_create_folder $HOME/personal/code
+safe_create_folder $HOME/work/code
+print_footer "Folders created"
+
+
 print_header "Installing HomeBrew 🍺"
+source "$ROOT_DIR/homebrew/setup-homebrew.sh"
 install_homebrew
 print_footer "HomeBrew installed"
 
@@ -133,10 +99,14 @@ print_header "Downloading HomeBrew apps 📱"
 download_homebrew_apps
 print_footer "HomeBrew apps downloaded"
 
+
 setup_zsh
+
+
 setup_nvm
 
-source "$ROOT_DIR/vscode/setup-vscode.sh"
+
 print_header "Syncing VSCode settings ⚙️"
+source "$ROOT_DIR/vscode/setup-vscode.sh"
 sync_vscode_settings
 print_footer "VSCode settings synced"
