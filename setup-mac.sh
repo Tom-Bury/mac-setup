@@ -57,14 +57,6 @@ setup_zsh() {
   print_footer "ZSH set up"
 }
 
-setup_nvm() {
-  print_header "Setting up NVM 📦"
-  if test ! "$(command -v nvm)"; then
-    # https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-  fi
-  print_footer "NVM set up"
-}
 
 
 sudo -v # Ask for the administrator password upfront
@@ -103,7 +95,10 @@ print_footer "HomeBrew apps downloaded"
 setup_zsh
 
 
+print_header "Setting up NVM 📦"
+source "$ROOT_DIR/nvm/setup-nvm.sh"
 setup_nvm
+print_footer "NVM set up"
 
 
 print_header "Syncing VSCode settings ⚙️"
