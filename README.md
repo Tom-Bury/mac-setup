@@ -29,7 +29,7 @@ Backups are created in `~/.mac-setup-backup`
   - e.g: certain applications will require changes to System Settings to access certain features or folders
 - Input whether to overwrite the current VSCode settings and keybindings, or merge them with the repo ones
   - Either way, the result will be visible in `vscode-settings.json` and `vscode-keybindings.json` in the repo
-- Manually set up iTerm2 to use the preferences stored in this repo at `com.googlecode.iterm2.plist`:
+- Manually set up iTerm2 to use the preferences stored in this repo at `iterm2/com.googlecode.iterm2.plist`:
   - Open iTerm2 preferences
   - Go to General > Preferences
   - Check "Load preferences from a custom folder or URL" and set the path to the repo folder
