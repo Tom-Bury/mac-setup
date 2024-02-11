@@ -17,7 +17,7 @@ rawurlencode() {
         encoded+="${o}"
     done
     echo "${encoded}"    # You can either set a return variable (FASTER) 
-    REPLY="${encoded}"   #+or echo the result (EASIER)... or both... :p
+    REPLY="${encoded}"   # or echo the result (EASIER)... or both... :p
 }
 
 fetch_remote_url_for_repo_path() {
@@ -29,11 +29,8 @@ curr_branch=$(git rev-parse --abbrev-ref HEAD)
 target_branch=${ref}
 
 repo_ssh_url=$(fetch_remote_url_for_repo_path ${repo:path})
-# replace : by /
 url_wip=${repo_ssh_url/:/\/}
-# replace git@ by https://
 url_wip="https://${url_wip/git@/}"
-# remove .git
 repo_https_url=${url_wip%.git}
 
 url="$repo_https_url/pull-requests/new?source=$(rawurlencode $curr_branch)&dest=$(rawurlencode $target_branch)"
