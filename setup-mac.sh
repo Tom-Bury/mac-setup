@@ -9,7 +9,7 @@ ROOT_DIR="$(dirname "$0")"
 DATETIME_FORMAT="%Y-%m-%d_%H-%M-%S"
 
 source "$ROOT_DIR/osx-preferences.sh"
-source "$ROOT_DIR/vscode/setup-vscode.sh"
+
 
 print_header() {
   echo "=== $1 ==="
@@ -37,27 +37,6 @@ setup_osx_preferences() {
   print_footer "OSX preferences set up"
 }
 
-install_homebrew() {
-  # https://brew.sh/
-  print_header "Installing HomeBrew 🍺" 
-  if test ! $(which brew); then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/tom.bury/.zprofile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-  fi
-  brew update
-  brew upgrade
-  print_footer "HomeBrew installed"
-}
-
-download_homebrew_apps() {
-  # Install any Homebrew packages, Mac Apps or VSCode extensions using a Brewfile
-  # https://docs.brew.sh/Manpage#bundle-subcommand
-  # https://github.com/Homebrew/homebrew-bundle
-  print_header "Downloading HomeBrew apps 📱"
-  brew bundle --file="$ROOT_DIR/Brewfile"
-  print_footer "HomeBrew apps downloaded"
-}
 
 create_backup() {
   mkdir -p "$HOME/.mac-setup-backups/"
@@ -144,11 +123,20 @@ setup_nvm() {
 sudo -v # Ask for the administrator password upfront
 setup_osx_preferences
 create_folders
+
+source "$ROOT_DIR/homebrew/setup-homebrew.sh"
+print_header "Installing HomeBrew 🍺"
 install_homebrew
+print_footer "HomeBrew installed"
+
+print_header "Downloading HomeBrew apps 📱"
 download_homebrew_apps
+print_footer "HomeBrew apps downloaded"
+
 setup_zsh
 setup_nvm
 
+source "$ROOT_DIR/vscode/setup-vscode.sh"
 print_header "Syncing VSCode settings ⚙️"
 sync_vscode_settings
 print_footer "VSCode settings synced"
