@@ -44,6 +44,9 @@ cask "zulu11" # For RN v0.68
 cask "android-studio"
 cask "react-native-debugger"
 
+# Python
+brew "pyenv"
+cask "pycharm-ce"
 
 ###############################################
 # Personal
