@@ -97,6 +97,7 @@ vscode "tomoki1207.pdf"
 vscode "jock.svg"
 vscode "george-alisson.html-preview-vscode"
 vscode "eriklynd.json-tools"
+vscode "ryu1kn.partial-diff"
 
 # Copilot
 vscode "GitHub.copilot"
@@ -111,6 +112,7 @@ vscode "yzhang.markdown-all-in-one"
 vscode "bierner.markdown-mermaid"
 vscode "TakumiI.markdowntable"
 vscode "DavidAnson.vscode-markdownlint"
+vscode "yzane.markdown-pdf"
 
 # Themes
 vscode "zhuangtongfa.material-theme"
