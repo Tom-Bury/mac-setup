@@ -98,6 +98,7 @@ vscode "jock.svg"
 vscode "george-alisson.html-preview-vscode"
 vscode "eriklynd.json-tools"
 vscode "ryu1kn.partial-diff"
+vscode "rangav.vscode-thunder-client"
 
 # Copilot
 vscode "GitHub.copilot"
