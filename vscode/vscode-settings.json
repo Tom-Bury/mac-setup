@@ -112,5 +112,26 @@
   "security.promptForLocalFileProtocolHandling": false,
   "editor.fontFamily": "FiraCode Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "testing.openTesting": "neverOpen"
+  "testing.openTesting": "neverOpen",
+  "yaml.schemas": {
+    "file:///Users/tom.bury/.vscode/extensions/atlassian.atlascode-3.0.10/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "atlascode.jira.lastCreateSiteAndProject": {
+    "siteId": "52c60977-cda9-405f-927f-f947c6f480ee",
+    "projectKey": "API"
+  },
+  "atlascode.jira.jqlList": [
+    {
+      "id": "7be17431-200c-4f50-b581-7e1a31f6d236",
+      "siteId": "52c60977-cda9-405f-927f-f947c6f480ee",
+      "name": "Assigned to me",
+      "query": "assignee in (5d1b197ab3e96d0d1b9a24be) AND status in (\"To do\", \"To Do old\") ORDER BY priority DESC, created DESC",
+      "enabled": true,
+      "monitor": true
+    }
+  ],
+  "extensions.ignoreRecommendations": true,
+  "workbench.activityBar.location": "top",
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
 }
