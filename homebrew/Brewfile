@@ -93,6 +93,11 @@ vscode "Orta.vscode-jest" # running your current test-suite everytime you change
 
 # Native development
 vscode "mathiasfrohlich.Kotlin"
+vscode "vscjava.vscode-gradle"
+
+# Infrastructure
+vscode "hashicorp.terraform"
+vscode "redhat.vscode-yaml"
 
 # Tools
 vscode "adpyke.codesnap"
@@ -104,14 +109,14 @@ vscode "george-alisson.html-preview-vscode"
 vscode "eriklynd.json-tools"
 vscode "ryu1kn.partial-diff"
 vscode "rangav.vscode-thunder-client"
+vscode "ms-vsliveshare.vsliveshare"
 
 # Copilot
 vscode "GitHub.copilot"
 vscode "GitHub.copilot-chat"
 
 # Git
-vscode "mhutchie.git-graph"
-vscode "eamodio.gitlens"
+vscode "waderyan.gitblame"
 
 # Markdown
 vscode "yzhang.markdown-all-in-one"
