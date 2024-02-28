@@ -197,5 +197,10 @@
     "key": "shift+cmd+g",
     "command": "workbench.view.scm",
     "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
+  },
+  {
+    "key": "alt+cmd+space",
+    "command": "workbench.action.chat.openInEditor",
+    "when": "workbench.panel.chat.view.copilot.active"
   }
 ]
