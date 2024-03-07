@@ -53,7 +53,6 @@
   "auto-close-tag.SublimeText3Mode": true,
   "application.shellEnvironmentResolutionTimeout": 20,
   "svg.preview.mode": "svg",
-  "diffEditor.hideUnchangedRegions.enabled": true,
   "asciidoc.preview.lineHeight": 1.4,
   "nxConsole.showNodeVersionOnStartup": false,
   "terminal.integrated.hideOnStartup": "always",
@@ -70,7 +69,6 @@
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "gitlens.plusFeatures.enabled": false,
-  "diffEditor.ignoreTrimWhitespace": false,
   "peacock.favoriteColors": [
     {
       "name": "Angular Red",
@@ -132,7 +130,7 @@
   ],
   "extensions.ignoreRecommendations": true,
   "workbench.activityBar.location": "top",
-  "window.commandCenter": false,
+  "git.alwaysShowStagedChangesResourceGroup": true,
   "workbench.layoutControl.enabled": false,
-  "git.alwaysShowStagedChangesResourceGroup": true
+  "window.commandCenter": false
 }
