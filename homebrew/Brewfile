@@ -34,6 +34,7 @@ cask "microsoft-remote-desktop"
 cask "azure-data-studio"
 brew "tlrc"
 brew "jq"
+brew "fzf"
 
 # React-Native
 brew "rbenv"
