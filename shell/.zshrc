@@ -30,6 +30,15 @@ alias gitf="git fetch"
 alias gita="git add -i"
 alias gitrba="git rebase --update-refs"
 
+gitsw() {
+  if [ "$1" = "-" ]; then
+    git switch -
+  else
+    git switch $(git branch | fzf| tr -d '[:space:]')
+  fi
+}
+
+
 ###############################################
 # React Native Android Studio setup https://reactnative-archive-august-2023.netlify.app/docs/next/environment-setup?package-manager=yarn&guide=native&platform=android
 ###############################################
