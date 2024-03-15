@@ -44,6 +44,8 @@ gitsw() {
   fi
 }
 
+alias pbc-branch='git rev-parse --abbrev-ref HEAD | pbcopy'
+
 ###############################################
 # React Native Android Studio setup https://reactnative-archive-august-2023.netlify.app/docs/next/environment-setup?package-manager=yarn&guide=native&platform=android
 ###############################################
