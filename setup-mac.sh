@@ -10,6 +10,11 @@ source "$ROOT_DIR/utils.sh"
 
 sudo -v # Ask for the administrator password upfront
 
+print_header "Setting up Git 🐙"
+source "$ROOT_DIR/git/setup-git.sh"
+setup_git
+print_footer "Git set up"
+
 print_header "Setting up OSX preferences 🖥"
 source "$ROOT_DIR/osx/setup-osx.sh"
 require_password_on_sleep

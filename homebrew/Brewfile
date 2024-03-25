@@ -15,6 +15,7 @@ cask "stats"
 ###############################################
 
 # Core apps
+brew "git"
 cask "docker"
 cask "visual-studio-code"
 cask "fork"
