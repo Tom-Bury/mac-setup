@@ -49,8 +49,7 @@
     a = add -i
     rba = rebase --update-refs
 
-[rst]
-    cmd = "!git clean -df && git checkout -- ."
+    rst = "!git clean -df && git checkout -- ."
 
 
 
