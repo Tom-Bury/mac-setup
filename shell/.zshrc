@@ -20,20 +20,6 @@ alias cdwc="cd $HOME/work/code"
 
 alias cdm="cd $HOME/work/code/twipe-app-v4"
 
-alias git-rst="git clean -df && git checkout -- ."
-alias git-find-tag="git rev-list -n 1"
-alias gits="git status"
-alias gitc="git commit -m"
-alias gitca="git commit -am"
-alias gitb="git branch"
-alias gitps="git push"
-alias gitpsh="git push"
-alias gitpl="git pull"
-alias gitpll="git pull"
-alias gitf="git fetch"
-alias gita="git add -i"
-alias gitrba="git rebase --update-refs"
-
 gitsw() {
   if [ "$1" = "-" ]; then
     # switch to the branch you were on before

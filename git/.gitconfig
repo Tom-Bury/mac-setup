@@ -1,0 +1,57 @@
+[user]
+	name = Tom Bury
+	useConfigOnly = true
+
+[core]
+    editor = code --wait
+
+[push]
+	autoSetupRemote = true
+
+[fetch]
+    prune = true
+
+[status]
+    short = true
+
+[rebase]
+	updateRefs = false
+
+[diff]
+  mnemonicPrefix = true
+  renames = true
+
+[pretty]
+	simple = format:%C(white)%s%C(reset)%C(auto)%(decorate:tag=,separator= )%C(reset)%n%C(white)⤷%C(reset) %C(240)%ad%C(reset) %C(italic 66)%an%C(reset) %C(130)%h%C(reset)%n
+
+[alias]
+	lg  = -c core.pager='less -SRF' log --pretty=simple --graph --date=format:'%Y-%m-%d %H:%M' --decorate @{u}
+	lga  = -c core.pager='less -SRF' log --pretty=simple --graph --date=format:'%Y-%m-%d %H:%M' --decorate @{u} --all
+	lgs  = -c core.pager='less -SRF' log --pretty=simple --graph --cc --stat --date=format:'%Y-%m-%d %H:%M' --decorate @{u}
+	lgd  = -c core.pager='less -SRF' log --pretty=simple --graph --cc --patch --date=format:'%Y-%m-%d %H:%M' --decorate @{u}
+	
+	lgg  = -c core.pager='less -SRF' log --pretty=simple --graph --date=format:'%Y-%m-%d %H:%M'
+	review-local = "!git lgg @{push}.."
+	diverge = ! "git lgg $(git merge-base $1 $2)^..$1 $(git merge-base $1 $2)^..$2"
+
+	email = config --local user.email
+	
+    find-tag = rev-list -n 1
+    s = status
+    c = commit -m
+    ca = commit -am
+    b = branch
+    ps = push
+    psh = push
+    pl = pull
+    pll = pull
+    f = fetch
+    a = add -i
+    rba = rebase --update-refs
+
+[rst]
+    cmd = "!git clean -df && git checkout -- ."
+
+
+
+
