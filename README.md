@@ -13,6 +13,7 @@ Repository to to kickstart a Mac, according to personal preferences focused on R
 The script can be run multiple times, it should be idempotent.
 The script will create backups before overwriting the following files:
 
+- `~/.gitconfig`
 - `~/.zshrc`
 - `~/.config/starship.toml`
 - VSCode `~/Library/Application Support/Code/User/settings.json`
