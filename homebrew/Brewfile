@@ -37,6 +37,8 @@ brew "tlrc"
 brew "jq"
 brew "fzf"
 brew "tree"
+tap "localsend/localsend"
+cask "localsend"
 
 # React-Native
 brew "rbenv"
