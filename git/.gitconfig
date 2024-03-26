@@ -32,6 +32,7 @@
 	
 	lgg  = -c core.pager='less -SRF' log --pretty=simple --graph --date=format:'%Y-%m-%d %H:%M'
 	review-local = "!git lgg @{push}.."
+    rl = "review-local"
 	diverge = ! "git lgg $(git merge-base $1 $2)^..$1 $(git merge-base $1 $2)^..$2"
 
 	email = config --local user.email
