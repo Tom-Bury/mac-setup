@@ -36,6 +36,7 @@ cask "azure-data-studio"
 brew "tlrc"
 brew "jq"
 brew "fzf"
+brew "tree"
 
 # React-Native
 brew "rbenv"

@@ -38,6 +38,11 @@ gitsw() {
 
 alias pbc-branch='git rev-parse --abbrev-ref HEAD | pbcopy'
 
+alias tree1='tree -L 1'
+alias tree2='tree -L 2'
+alias tree3='tree -L 3'
+alias tree4='tree -L 4'
+
 ###############################################
 # React Native Android Studio setup https://reactnative-archive-august-2023.netlify.app/docs/next/environment-setup?package-manager=yarn&guide=native&platform=android
 ###############################################
