@@ -42,6 +42,7 @@
     c = commit -m
     ca = commit -am
     b = branch
+    cb = git checkout -b <branch-name>
     ps = push
     psh = push
     pl = pull
@@ -49,7 +50,7 @@
     f = fetch
     a = add -i
     rba = rebase --update-refs
-
+    swr = "!git fetch origin && git checkout $(git branch -r | fzf)"
     rst = "!git clean -df && git checkout -- ."
 
 

@@ -24,9 +24,6 @@ gitsw() {
   if [ "$1" = "-" ]; then
     # switch to the branch you were on before
     git switch -
-  elif [ "$1" = "." ]; then
-    # switch to the branch you created most recently
-    git switch $(git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n 1)
   elif git show-ref --verify --quiet refs/heads/"$1"; then
     # switch to the branch you specified
     git switch "$1"
