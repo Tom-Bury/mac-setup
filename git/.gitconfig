@@ -42,7 +42,7 @@
     c = commit -m
     ca = commit -am
     b = branch
-    cb = git checkout -b <branch-name>
+    cb = checkout -b
     ps = push
     psh = push
     pl = pull
