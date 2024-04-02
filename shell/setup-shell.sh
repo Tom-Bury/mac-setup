@@ -3,6 +3,8 @@
 SCRIPT_DIR="$(dirname "$0")"
 
 setup_shell() {
+  cp "$SCRIPT_DIR/../git/create-bb-pr.sh" $HOME/.create-bb-pr.sh
+
   install_oh_my_zsh
   setup_starship_prompt
   setup_zshrc

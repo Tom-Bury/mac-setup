@@ -35,6 +35,10 @@ gitsw() {
 
 alias pbc-branch='git rev-parse --abbrev-ref HEAD | pbcopy'
 
+source $HOME/.create-bb-pr.sh
+
+alias gitbb='create_bb_pull_request'
+
 alias tree1='tree -L 1'
 alias tree2='tree -L 2'
 alias tree3='tree -L 3'
