@@ -50,7 +50,7 @@
     f = fetch
     a = add -i
     rba = rebase --update-refs
-    swr = "!git fetch origin && git checkout $(git branch -r | fzf)"
+    swr = "!git fetch origin && git checkout $(git branch -r | sed 's/origin\\///' | fzf)"
     rst = "!git clean -df && git checkout -- ."
 
 
