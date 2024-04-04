@@ -16,7 +16,7 @@
   "editor.minimap.enabled": false,
   "editor.guides.bracketPairs": true,
   "editor.unicodeHighlight.invisibleCharacters": true,
-  "editor.unicodeHighlight.ambiguousCharacters": true,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.inlineSuggest.enabled": true,
   "git-graph.commitDetailsView.location": "Docked to Bottom",
   "codesnap.boxShadow": "",
@@ -132,5 +132,6 @@
   "workbench.activityBar.location": "top",
   "git.alwaysShowStagedChangesResourceGroup": true,
   "workbench.layoutControl.enabled": false,
-  "window.commandCenter": false
+  "window.commandCenter": false,
+  "terminal.integrated.macOptionIsMeta": true
 }
