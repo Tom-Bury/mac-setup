@@ -68,6 +68,26 @@ setup_zsh_autocomplete() {
 }
 
 setup_extra_source_scripts() {
-  cp "$SCRIPT_DIR/../git/create-bb-pr.sh" "$HOME/zshrc-scripts/create-bb-pr.sh"
-  cp "$SCRIPT_DIR/ssh.sh" "$HOME/zshrc-scripts/ssh.sh"
+  DEST_DIR="$HOME/zshrc-scripts"
+
+  [ -d "$DEST_DIR" ] || mkdir -p "$DEST_DIR"
+
+  # Define the source files
+  SOURCE_FILES=(
+      "$SCRIPT_DIR/../git/create-bb-pr.sh" 
+      "$SCRIPT_DIR/ssh.sh"
+  )
+
+  # Loop over the source files
+  for SOURCE_FILE in "${SOURCE_FILES[@]}"; do
+    # Extract the filename from the source file path
+    FILENAME=$(basename "$SOURCE_FILE")
+
+    # Check if the source file exists and copy it
+    if [ -f "$SOURCE_FILE" ]; then
+      cp "$SOURCE_FILE" "$DEST_DIR/$FILENAME"
+    else
+      echo "Source file $SOURCE_FILE does not exist."
+    fi
+  done
 }
