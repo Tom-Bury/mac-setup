@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
-
-add_ssh_keys() {
+setup_ssh() {
     for key in ~/.ssh/id_*; do
-        ssh-add --apple-use-keychain $key
+        if [[ ! $key =~ \.pub$ ]]; then
+            ssh-add --apple-use-keychain $key
+        fi
     done
 }

@@ -41,3 +41,4 @@ Backups are created in `~/.mac-setup-backup`
   - Check "Load preferences from a custom folder or URL" and set the path to the repo folder
 - In Git Fork GUI, manually add the custom commands from `/git-fork-custom-commands`
 - In Raycast, manually import the settings from `raycast/settings-export.rayconfig`
+- Call `setup_ssh` to add your SSH keys to your SSH agent using the keychain
