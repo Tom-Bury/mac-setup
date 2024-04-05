@@ -3,8 +3,6 @@
 SCRIPT_DIR="$(dirname "$0")"
 
 setup_shell() {
-  cp "$SCRIPT_DIR/../git/create-bb-pr.sh" $HOME/.create-bb-pr.sh
-
   install_oh_my_zsh
   setup_starship_prompt
   setup_zshrc
@@ -14,6 +12,8 @@ setup_shell() {
   setup_autosuggestions
   setup_syntax_highlighting
   setup_zsh_autocomplete
+
+  setup_extra_source_scripts
 
   source $HOME/.zshrc  
 }
@@ -65,4 +65,9 @@ setup_zsh_autocomplete() {
   zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
   zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 8
   zstyle ':autocomplete:history-search-backward:*' list-lines 8
+}
+
+setup_extra_source_scripts() {
+  cp "$SCRIPT_DIR/../git/create-bb-pr.sh" "$HOME/zshrc-scripts/create-bb-pr.sh"
+  cp "$SCRIPT_DIR/ssh.sh" "$HOME/zshrc-scripts/ssh.sh"
 }

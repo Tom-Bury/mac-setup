@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Git Fork GUI custom command to create a pull request into a specific branch
 # unsure if this works for non-bitbucket repos
 

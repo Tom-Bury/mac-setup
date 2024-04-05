@@ -35,8 +35,6 @@ gitsw() {
 
 alias pbc-branch='git rev-parse --abbrev-ref HEAD | pbcopy'
 
-source $HOME/.create-bb-pr.sh
-
 alias gitbb='create_bb_pull_request'
 
 alias tree1='tree -L 1'
@@ -111,6 +109,13 @@ eval "$(pyenv init -)"
 ###############################################
 
 eval "$(starship init zsh)"
+
+###############################################
+# Extra scripts
+###############################################
+
+source $HOME/zshrc-scripts/ssh.sh
+source $HOME/zshrc-scripts/create-bb-pr.sh
 
 ###############################################
 # Adjust PATH
