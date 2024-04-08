@@ -73,11 +73,8 @@ setup_extra_source_scripts() {
   [ -d "$DEST_DIR" ] || mkdir -p "$DEST_DIR"
 
   # Define the source files
-  SOURCE_FILES=(
-      "$SCRIPT_DIR/../git/create-bb-pr.sh" 
-      "$SCRIPT_DIR/../git/git-add.sh"
-      "$SCRIPT_DIR/ssh.sh"
-  )
+  SOURCE_FILES_PREFIX=".zshrc_"
+  SOURCE_FILES=($(find "$SCRIPT_DIR/.." -type f -name "$SOURCE_FILES_PREFIX*.sh"))
 
   # Loop over the source files
   for SOURCE_FILE in "${SOURCE_FILES[@]}"; do
@@ -90,5 +87,8 @@ setup_extra_source_scripts() {
     else
       echo "Source file $SOURCE_FILE does not exist."
     fi
+
+    # Source it
+    echo "source $DEST_DIR/$FILENAME" >> "$HOME/.zshrc"
   done
 }

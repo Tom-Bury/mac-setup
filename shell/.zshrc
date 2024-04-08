@@ -112,14 +112,6 @@ eval "$(pyenv init -)"
 eval "$(starship init zsh)"
 
 ###############################################
-# Extra scripts
-###############################################
-
-source $HOME/zshrc-scripts/ssh.sh
-source $HOME/zshrc-scripts/create-bb-pr.sh
-source $HOME/zshrc-scripts/git-add.sh
-
-###############################################
 # Adjust PATH
 ###############################################
 
