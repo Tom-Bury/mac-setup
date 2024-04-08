@@ -5,6 +5,7 @@ Repository to to kickstart a Mac, according to personal preferences focused on R
 - Installation of HomeBrew
 - Installation of a variety of packages and applications via HomeBrew
 - ZSH setup, including aliases, Oh My ZSH and Starship
+- Setup of custom shell scripts, by sourcing any of the `.zshrc_*.sh` files
 - MacOS system settings changes
 - Installation of NVM
 - Scaffolding of main folders in home directory
