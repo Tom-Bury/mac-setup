@@ -49,3 +49,5 @@ create_bb_pull_request() {
     local url="$repo_https_url/pull-requests/new?source=$(rawurlencode $curr_branch)&dest=$(rawurlencode $target_branch)"
     open $url > /dev/null 2>&1
 }
+
+alias gitbb='create_bb_pull_request'

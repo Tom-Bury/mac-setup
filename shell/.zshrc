@@ -35,8 +35,7 @@ gitsw() {
 
 alias pbc-branch='git rev-parse --abbrev-ref HEAD | pbcopy'
 
-alias gitbb='create_bb_pull_request'
-alias gita='git_add'
+
 
 alias tree1='tree -L 1'
 alias tree2='tree -L 2'

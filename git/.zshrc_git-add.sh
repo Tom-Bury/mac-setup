@@ -1,5 +1,4 @@
-
-#!/bin/bash
+#!/usr/bin/env zsh
 
 # Adapted from https://thevaluable.dev/fzf-git-integration/
 
@@ -80,3 +79,5 @@ function git_add() {
 	--bind='ctrl-u:preview-half-page-up' \
 	--bind='ctrl-d:preview-half-page-down'
 }
+
+alias gita='git_add'
