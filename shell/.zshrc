@@ -20,19 +20,6 @@ alias cdwc="cd $HOME/work/code"
 
 alias cdm="cd $HOME/work/code/twipe-app-v4"
 
-gitsw() {
-  if [ "$1" = "-" ]; then
-    # switch to the branch you were on before
-    git switch -
-  elif git show-ref --verify --quiet refs/heads/"$1"; then
-    # switch to the branch you specified
-    git switch "$1"
-  else
-    # switch to the branch you selected with fzf
-    git switch $(git branch | fzf| tr -d '[:space:]')
-  fi
-}
-
 alias pbc-branch='git rev-parse --abbrev-ref HEAD | pbcopy'
 
 
