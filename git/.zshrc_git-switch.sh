@@ -8,8 +8,16 @@ git_switch() {
     # switch to the branch you specified
     git switch "$1"
   else
-    # switch to the branch you selected with fzf
-    git switch $(git branch | fzf| tr -d '[:space:]')
+    # switch to the branch you select with fzf
+    git switch $(
+        git branch | 
+        fzf \
+            --color='prompt:#af5fff,header:#262626,gutter:-1,pointer:#af5fff' \
+            --reverse \
+            --pointer="⏺" \
+            --query="$1" | 
+        tr -d '[:space:]'
+    )
   fi
 }
 
