@@ -36,6 +36,7 @@ gitsw() {
 alias pbc-branch='git rev-parse --abbrev-ref HEAD | pbcopy'
 
 alias gitbb='create_bb_pull_request'
+alias gita='git_add'
 
 alias tree1='tree -L 1'
 alias tree2='tree -L 2'
@@ -116,6 +117,7 @@ eval "$(starship init zsh)"
 
 source $HOME/zshrc-scripts/ssh.sh
 source $HOME/zshrc-scripts/create-bb-pr.sh
+source $HOME/zshrc-scripts/git-add.sh
 
 ###############################################
 # Adjust PATH

@@ -75,6 +75,7 @@ setup_extra_source_scripts() {
   # Define the source files
   SOURCE_FILES=(
       "$SCRIPT_DIR/../git/create-bb-pr.sh" 
+      "$SCRIPT_DIR/../git/git-add.sh"
       "$SCRIPT_DIR/ssh.sh"
   )
 
