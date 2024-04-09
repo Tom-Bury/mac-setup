@@ -70,7 +70,7 @@ function git_add() {
 	--bind="alt-d:execute($git_reset && git checkout {+})" \
 	--bind="alt-d:+reload($git_staged_files)" \
 	--bind='alt-c:execute(git commit)+abort' \
-	--bind='alt-a:execute(git commit -e nano --amend)+abort' \
+	--bind='alt-a:execute(git commit --amend)+abort' \
 	--bind='alt-e:execute(code -r {+})' \
 	--bind='f1:toggle-header' \
 	--bind='f2:toggle-preview' \
