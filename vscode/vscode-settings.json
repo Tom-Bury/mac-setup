@@ -137,8 +137,5 @@
   "debug.console.closeOnEnd": true,
   "debug.toolBarLocation": "docked",
   "terminal.integrated.experimentalInlineChat": true,
-  "terminal.integrated.enableImages": true,
-  "files.exclude": {
-    "**/.git": false
-  }
+  "terminal.integrated.enableImages": true
 }
