@@ -27,12 +27,13 @@
   "workbench.editor.limit.value": 6,
   "zenMode.fullScreen": false,
   "search.exclude": {
+    "**/.git/*": true,
     "**/.idea/*": true,
     "**/build/*": true,
     "**/coverage/*": true,
     "**/dist/*": true,
     "**/ios/Resources/*": true,
-    "**/node_modules": false,
+    "**/ngV4output/*": true,
     "**/node_modules/*": true,
     "**/Pods/*": true,
     "**/vendor/*": true
@@ -47,9 +48,6 @@
     "scminput": false
   },
   "workbench.startupEditor": "none",
-  "files.exclude": {
-    "**/.git": false
-  },
   "auto-close-tag.SublimeText3Mode": true,
   "application.shellEnvironmentResolutionTimeout": 20,
   "svg.preview.mode": "svg",
@@ -129,9 +127,15 @@
     }
   ],
   "extensions.ignoreRecommendations": true,
-  "workbench.activityBar.location": "top",
+  "workbench.activityBar.location": "bottom",
   "git.alwaysShowStagedChangesResourceGroup": true,
   "workbench.layoutControl.enabled": false,
   "window.commandCenter": false,
-  "terminal.integrated.macOptionIsMeta": true
+  "terminal.integrated.macOptionIsMeta": true,
+  "zenMode.hideLineNumbers": false,
+  "debug.closeReadonlyTabsOnEnd": true,
+  "debug.console.closeOnEnd": true,
+  "debug.toolBarLocation": "docked",
+  "terminal.integrated.experimentalInlineChat": true,
+  "terminal.integrated.enableImages": true
 }
