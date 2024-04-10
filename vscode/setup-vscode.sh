@@ -31,14 +31,28 @@ overwrite_vscode_settings() {
 
 merge_vscode_settings() {  
   jq -s '.[0] + .[1]' "$SCRIPT_DIR/vscode-settings.json" "$VSCODE_SETTINGS" > "$SCRIPT_DIR/tmp.json"
-  cp $SCRIPT_DIR/tmp.json "$SCRIPT_DIR/vscode-settings.json"
-  cp $SCRIPT_DIR/tmp.json "$VSCODE_SETTINGS"
-  rm "$SCRIPT_DIR/tmp.json"
+  if [ $? -eq 0 ]; then
+    cp "$SCRIPT_DIR/tmp.json" "$SCRIPT_DIR/vscode-settings.json"
+    cp "$SCRIPT_DIR/tmp.json" "$VSCODE_SETTINGS"
+    echo "VSCode settings merged and local files updated with the result. Check for changes and commit them!"
+  else
+    echo "❌ VSCode settings merge failed. Reverting changes. Please sync manually."
+  fi
+
+  if [ -f "$SCRIPT_DIR/tmp.json" ]; then
+    rm "$SCRIPT_DIR/tmp.json"
+  fi
 
   jq -s 'add | unique' "$SCRIPT_DIR/vscode-keybindings.json" "$VSCODE_KEYBINDINGS" > "$SCRIPT_DIR/tmp.json"
-  cp $SCRIPT_DIR/tmp.json "$SCRIPT_DIR/vscode-keybindings.json"
-  cp $SCRIPT_DIR/tmp.json "$VSCODE_KEYBINDINGS"
-  rm "$SCRIPT_DIR/tmp.json"
+  if [ $? -eq 0 ]; then
+    cp "$SCRIPT_DIR/tmp.json" "$SCRIPT_DIR/vscode-keybindings.json"
+    cp "$SCRIPT_DIR/tmp.json" "$VSCODE_KEYBINDINGS"
+    echo "VSCode keybindings merged and local files updated with the result. Check for changes and commit them!"
+  else
+    echo "❌ VSCode keybindings merge failed. Reverting changes. Please sync manually."
+  fi
 
-  echo "VSCode settings merged and local files updated with the result. Check for changes and commit them!"
+  if [ -f "$SCRIPT_DIR/tmp.json" ]; then
+    rm "$SCRIPT_DIR/tmp.json"
+  fi
 }
