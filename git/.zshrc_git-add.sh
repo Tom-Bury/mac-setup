@@ -3,8 +3,8 @@
 # Adapted from https://thevaluable.dev/fzf-git-integration/
 
 function git_add() {
-	local -r prompt_add="  Add > "
-	local -r prompt_reset="  Reset > "
+	local -r prompt_add="  Stage > "
+	local -r prompt_reset="  Unstage > "
 
 	local -r git_root_dir=$(git rev-parse --show-toplevel)
 	local -r git_unstaged_files="git ls-files --modified --deleted --other --exclude-standard --deduplicate $git_root_dir"
@@ -16,26 +16,26 @@ function git_add() {
 
 	local -r preview_status_label="[ 📝 Status ]"
 	local -r preview_status="git -c color.status=always status --short"
-
 	local -r header=$(cat <<-EOF
-		> CTRL-S to switch between Add Mode and Reset mode
-		> CTRL_T for status preview | CTRL-F for diff preview | CTRL-B for blame preview
-		> ALT-E to open selected files in your editor
-		> ALT-C to commit | ALT-A to append to the last commit
-		EOF
+		> CTRL-S: Switch Stage/Unstage
+		> Preview: CTRL-T: Status | CTRL-F: Diff | CTRL-B: Blame
+		> ALT-E: Open in editor
+		> Commit: ALT-C: Commit | ALT-A: Amend
+	EOF
 	)
-
 	local -r add_header=$(cat <<-EOF
 		$header
-		> ENTER / TAB to add files
-		> ALT-P to add patch
+		> TAB: Select files
+		> ENTER: Stage selected
+		> ALT-P: Add patch
 	EOF
 	)
 
 	local -r reset_header=$(cat <<-EOF
 		$header
-		> ENTER / TAB to reset files
-		> ALT-D to reset and checkout files
+		> TAB: Select files
+		> ENTER: Unstage selected
+		> ALT-D: Discard file
 	EOF
 	)
 
