@@ -25,20 +25,20 @@ git_switch_remote() {
   if [ "$1" = "-" ]; then
     # switch to the branch you were on before
     git switch -
-  elif git show-ref --verify --quiet refs/remotes/"$1"; then
+  elif git show-ref --verify --quiet refs/remotes/origin/"$1"; then
     # switch to the branch you specified
-    git switch "$1"
+    git checkout "$1"
   else
     # switch to the branch you select with fzf
-    git switch $(
-        git branch -r | 
+    local branch=$(git branch -r | 
         fzf \
             --color='prompt:#af5fff,header:#262626,gutter:-1,pointer:#af5fff' \
             --reverse \
             --pointer="⏺" \
             --query="$1" | 
-        tr -d '[:space:]'
-    )
+        tr -d '[:space:]' | 
+        sed 's#origin/##')
+    git checkout -b "$branch" "origin/$branch"
   fi
 }
 
