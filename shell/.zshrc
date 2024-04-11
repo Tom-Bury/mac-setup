@@ -18,7 +18,7 @@ alias cdpc="cd $HOME/personal/code"
 alias cdw="cd $HOME/work"
 alias cdwc="cd $HOME/work/code"
 
-alias cdm="cd $HOME/work/code/twipe-app-v4"
+alias cdm="cd $HOME/work/code/monorepo"
 
 alias pbc-branch='git rev-parse --abbrev-ref HEAD | pbcopy'
 
