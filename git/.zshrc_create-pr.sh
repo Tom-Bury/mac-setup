@@ -1,8 +1,5 @@
 #!/usr/bin/env zsh
 
-# Git Fork GUI custom command to create a pull request into a specific branch
-# unsure if this works for non-bitbucket repos
-
 # source: https://github.com/sfinktah/bash/blob/master/rawurlencode.inc.sh
 rawurlencode() {
     local string="${1}"
@@ -26,12 +23,20 @@ fetch_remote_url_for_repo_path() {
     local remote_url=$(git -C "$1" remote get-url origin)
     echo "${remote_url}"
 }
+
 get_target_branch() {
     local target_branch=$1
 
     # If no target branch is provided, use fzf to select one
     if [ -z "$target_branch" ]; then
-        target_branch=$(git branch -r | grep -v "HEAD" | fzf --prompt='Branch to PR into > ')
+        target_branch=$(
+            git branch -r |
+            grep -v "HEAD" |
+            fzf --prompt='Branch to PR into > ' \
+                --color='prompt:#af5fff,header:#262626,gutter:-1,pointer:#af5fff' \
+                --reverse \
+                --pointer="⏺"
+        )
     fi
 
     # Trim the 'origin/' part of the target branch
