@@ -45,7 +45,7 @@ get_target_branch() {
     echo $target_branch
 }
 
-create_pull_request() {
+create_pull_request_on_platform() {
     local platform=$1
     local target_branch=$(get_target_branch $2)
     local curr_branch=$(git rev-parse --abbrev-ref HEAD)
@@ -68,13 +68,25 @@ create_pull_request() {
 }
 
 create_bb_pull_request() {
-    create_pull_request "Bitbucket" $1
+    create_pull_request_on_platform "Bitbucket" $1
 }
 
 alias gitbb='create_bb_pull_request'
 
 create_gh_pull_request() {
-    create_pull_request "GitHub" $1
+    create_pull_request_on_platform "GitHub" $1
 }
 
 alias gitgh='create_gh_pull_request'
+
+create_pull_request() {
+    local repo_ssh_url=$(fetch_remote_url_for_repo_path .)
+
+    if [[ $repo_ssh_url == *"bitbucket"* ]]; then
+        create_pull_request_on_platform $1
+    else
+        create_pull_request_on_platform $1
+    fi
+}
+
+alias gitpr='create_pull_request'
