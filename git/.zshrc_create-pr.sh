@@ -83,9 +83,9 @@ create_pull_request() {
     local repo_ssh_url=$(fetch_remote_url_for_repo_path .)
 
     if [[ $repo_ssh_url == *"bitbucket"* ]]; then
-        create_pull_request_on_platform $1
+        create_bb_pull_request $1
     else
-        create_pull_request_on_platform $1
+        create_gh_pull_request $1
     fi
 }
 
