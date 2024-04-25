@@ -53,6 +53,8 @@
     swr = "!git fetch origin && git checkout $(git branch -r | sed 's/origin\\///' | fzf)"
     rst = "!git clean -df && git checkout -- ."
 
+    rename-branch = branch -m
+
 
 
 
