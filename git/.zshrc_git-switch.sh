@@ -22,6 +22,8 @@ git_switch() {
 }
 
 git_switch_remote() {
+  git fetch --all
+
   if [ "$1" = "-" ]; then
     # switch to the branch you were on before
     git switch -
