@@ -27,6 +27,8 @@ setup_finder() {
   defaults write NSGlobalDomain "NSToolbarTitleViewRolloverDelay" -float "0"
   # Keep folders on top when sorting by name
   defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
+  # Disable the warning before vchanging a file extension
+  defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false" && killall Finder
 }
 
 enable_snap_to_grid() {
