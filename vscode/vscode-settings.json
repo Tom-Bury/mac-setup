@@ -127,7 +127,7 @@
     }
   ],
   "extensions.ignoreRecommendations": true,
-  "workbench.activityBar.location": "bottom",
+  "workbench.activityBar.location": "top",
   "git.alwaysShowStagedChangesResourceGroup": true,
   "workbench.layoutControl.enabled": false,
   "window.commandCenter": false,
@@ -137,5 +137,7 @@
   "debug.console.closeOnEnd": true,
   "debug.toolBarLocation": "docked",
   "terminal.integrated.experimentalInlineChat": true,
-  "terminal.integrated.enableImages": true
+  "terminal.integrated.enableImages": true,
+  "debug.openExplorerOnEnd": true,
+  "debug.terminal.clearBeforeReusing": true
 }

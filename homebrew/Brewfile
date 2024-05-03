@@ -116,6 +116,7 @@ vscode "eriklynd.json-tools"
 vscode "ryu1kn.partial-diff"
 vscode "rangav.vscode-thunder-client"
 vscode "ms-vsliveshare.vsliveshare"
+vscode "YevhenCherkes.object-dumper"
 
 # Copilot
 vscode "GitHub.copilot"
