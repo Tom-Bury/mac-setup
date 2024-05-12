@@ -42,10 +42,9 @@ cask "localsend"
 
 # React-Native
 brew "rbenv"
-tap "homebrew/cask-versions"
-cask "zulu17"
+cask "zulu@17"
 brew "watchman"
-cask "zulu11" # For RN v0.68
+cask "zulu@11" # For RN v0.68
 cask "android-studio"
 cask "react-native-debugger"
 brew "scrcpy"
