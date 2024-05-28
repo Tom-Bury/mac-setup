@@ -15,9 +15,10 @@ function git_add() {
 	local -r enter_cmd="($git_unstaged_files | grep {} && git add {+}) || $git_reset"
 
 	local -r preview_status_label="[ 📝 Status ]"
-	local -r preview_diff_label="[ 🔄 Diff ]"
-	local -r preview_blame_label="[ 🔍 Blame ]"
 	local -r preview_status="git -c color.status=always status --short"
+	local -r preview_diff_label="[ 🔄 Diff ]"
+	local -r preview_diff="git diff --color=always {} | sed "1,4d""
+	local -r preview_blame_label="[ 🔍 Blame ]"
 	local -r header=$(cat <<-EOF
 		| CTRL-S: Switch Stage/Unstage
 		| Preview: CTRL-T: Status | CTRL-F: Diff | CTRL-B: Blame
@@ -52,15 +53,15 @@ function git_add() {
 	--reverse \
 	--no-sort \
 	--prompt="$prompt_add" \
-	--preview-label="$preview_status_label" \
-	--preview="$preview_status" \
+	--preview-label="$preview_diff_label" \
+	--preview="$preview_diff" \
 	--header "$add_header" \
 	--header-first \
 	--bind='start:unbind(alt-d)' \
 	--bind="ctrl-t:change-preview-label($preview_status_label)" \
 	--bind="ctrl-t:+change-preview($preview_status)" \
 	--bind="ctrl-f:change-preview-label($preview_diff_label)" \
-	--bind='ctrl-f:+change-preview(git diff --color=always {} | sed "1,4d")' \
+	--bind="ctrl-f:+change-preview($preview_diff)" \
 	--bind="ctrl-b:change-preview-label($preview_blame_label)" \
 	--bind='ctrl-b:+change-preview(git blame --color-by-age {})' \
 	--bind="ctrl-s:transform:[[ \$FZF_PROMPT =~ '$prompt_add' ]] && echo '$mode_reset' || echo '$mode_add'" \
