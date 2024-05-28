@@ -18,11 +18,11 @@ alias cdpc="cd $HOME/personal/code"
 alias cdw="cd $HOME/work"
 alias cdwc="cd $HOME/work/code"
 
+alias cdd="cd $HOME/Desktop"
+
 alias cdm="cd $HOME/work/code/monorepo"
 
 alias pbc-branch='git rev-parse --abbrev-ref HEAD | pbcopy'
-
-
 
 alias tree1='tree -L 1'
 alias tree2='tree -L 2'
