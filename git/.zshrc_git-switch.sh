@@ -1,6 +1,10 @@
 #!/usr/bin/env zsh
 
 git_switch() {
+  STASH_NAME="autostash_$(git rev-parse --abbrev-ref HEAD)_$(date +%Y-%m-%d)"
+  git stash -q -u -m $STASH_NAME
+  trap "git stash pop -q" EXIT
+
   if [ "$1" = "-" ]; then
     # switch to the branch you were on before
     git switch -
@@ -22,6 +26,10 @@ git_switch() {
 }
 
 git_switch_remote() {
+  STASH_NAME="autostash_$(git rev-parse --abbrev-ref HEAD)_$(date +%Y-%m-%d)"
+  git stash -q -u -m $STASH_NAME
+  trap "git stash pop -q" EXIT
+
   git fetch --all
 
   if [ "$1" = "-" ]; then
