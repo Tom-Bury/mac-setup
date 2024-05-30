@@ -3,7 +3,10 @@
 git_switch() {
   STASH_NAME="autostash_$(git rev-parse --abbrev-ref HEAD)_$(date +%Y-%m-%d)"
   git stash -q -u -m $STASH_NAME
-  trap "git stash pop -q" EXIT
+  STASH_REF=$(git stash list | grep $STASH_NAME | awk -F: '{print $1}' || echo "")
+  if [[ -n $STASH_REF ]]; then
+    trap "git stash pop -q $STASH_REF" EXIT
+  fi
 
   if [ "$1" = "-" ]; then
     # switch to the branch you were on before
@@ -28,7 +31,10 @@ git_switch() {
 git_switch_remote() {
   STASH_NAME="autostash_$(git rev-parse --abbrev-ref HEAD)_$(date +%Y-%m-%d)"
   git stash -q -u -m $STASH_NAME
-  trap "git stash pop -q" EXIT
+  STASH_REF=$(git stash list | grep $STASH_NAME | awk -F: '{print $1}' || echo "")
+  if [[ -n $STASH_REF ]]; then
+    trap "git stash pop -q $STASH_REF" EXIT
+  fi
 
   git fetch --all
 
