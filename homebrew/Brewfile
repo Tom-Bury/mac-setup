@@ -130,6 +130,7 @@ vscode "bierner.markdown-mermaid"
 vscode "TakumiI.markdowntable"
 vscode "DavidAnson.vscode-markdownlint"
 vscode "yzane.markdown-pdf"
+vscode "bierner.markdown-preview-github-styles"
 
 # Themes
 vscode "zhuangtongfa.material-theme"
