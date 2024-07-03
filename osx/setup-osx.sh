@@ -69,4 +69,8 @@ setup_typing_preferences() {
   # Disable smart quotes and dashes as they’re annoying when typing code
   defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
   defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+  
+  # Set keyboard repeat rate
+  defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
+  defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 }
