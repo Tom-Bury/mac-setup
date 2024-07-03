@@ -102,3 +102,4 @@ eval "$(starship init zsh)"
 ###############################################
 
 export PATH="$HOME/bin:$PATH"
+export PATH=$PATH:$HOME/.maestro/bin
