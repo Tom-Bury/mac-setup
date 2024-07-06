@@ -127,7 +127,7 @@
     }
   ],
   "extensions.ignoreRecommendations": true,
-  "workbench.activityBar.location": "top",
+  "workbench.activityBar.location": "hidden",
   "git.alwaysShowStagedChangesResourceGroup": true,
   "workbench.layoutControl.enabled": false,
   "window.commandCenter": false,
