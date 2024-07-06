@@ -22,6 +22,7 @@ fd() {
                 --color='prompt:#af5fff,header:#262626,gutter:-1,pointer:#af5fff' \
                 --reverse \
                 --pointer="⏺" \
+                --query="$1"
         )
     if [[ -n $dir ]]; then
         cd "$dir"
