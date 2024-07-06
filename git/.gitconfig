@@ -16,6 +16,10 @@
 
 [rebase]
 	updateRefs = false
+    autoStash = true
+
+[pull]
+    rebase = true
 
 [diff]
   mnemonicPrefix = true
@@ -55,6 +59,9 @@
 
     rename-branch = branch -m
 
+# https://opensource.googleblog.com/2018/05/introducing-git-protocol-version-2.html
+[protocol]
+	version = 2
 
 
 
