@@ -27,8 +27,8 @@ setup_finder() {
   defaults write NSGlobalDomain "NSToolbarTitleViewRolloverDelay" -float "0"
   # Keep folders on top when sorting by name
   defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
-  # Disable the warning before vchanging a file extension
-  defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false" && killall Finder
+  # When performing a search, search the current folder by default
+  defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 }
 
 enable_snap_to_grid() {
@@ -71,6 +71,12 @@ setup_typing_preferences() {
   defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
   
   # Set keyboard repeat rate
-  defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
-  defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+  defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
+  defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
+  
+  # Disable auto-correct
+  defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+  
+  # Disable press-and-hold for keys in favor of key repeat
+  defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 }
