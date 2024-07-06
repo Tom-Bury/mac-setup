@@ -95,6 +95,7 @@ vscode "codeandstuff.package-json-upgrade"
 vscode "dbaeumer.vscode-eslint"
 vscode "firsttris.vscode-jest-runner" # running or debugging a specific test or test-suite
 vscode "Orta.vscode-jest" # running your current test-suite everytime you change it.
+vscode "1YiB.svelte-bundle"
 
 # Native development
 vscode "mathiasfrohlich.Kotlin"
@@ -116,6 +117,7 @@ vscode "ryu1kn.partial-diff"
 vscode "rangav.vscode-thunder-client"
 vscode "ms-vsliveshare.vsliveshare"
 vscode "YevhenCherkes.object-dumper"
+vscode "sleistner.vscode-fileutils"
 
 # Copilot
 vscode "GitHub.copilot"
