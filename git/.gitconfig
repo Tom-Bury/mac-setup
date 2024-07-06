@@ -49,6 +49,8 @@
     cb = checkout -b
     ps = push
     psh = push
+    psf = push --force
+    pshf = push --force
     pl = pull
     pll = pull
     f = fetch
