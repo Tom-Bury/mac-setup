@@ -24,6 +24,7 @@ enable_snap_to_grid
 expand_save_and_print_dialogs
 setup_dock
 setup_mission_control
+setup_simulators
 
 killall Finder
 killall Dock
