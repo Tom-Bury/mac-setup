@@ -1,14 +1,19 @@
 #!/usr/bin/env zsh
 
-SCRIPT_DIR="$(dirname "$0")"
+main() {
+  local SCRIPT_DIR=$1
+  rm -rf "$HOME/zshrc-scripts"
+  source "$SCRIPT_DIR/../utils.sh"
 
-rm -rf "$HOME/zshrc-scripts"
+  print_header "Installing packages 📦"
+  zsh "$SCRIPT_DIR/install-packages.sh"
+  print_footer "Packages installed"
 
-source "$SCRIPT_DIR/install-packages.sh"
-install_packages
+  zsh "$SCRIPT_DIR/../shared/main.sh"
 
-zsh "$SCRIPT_DIR/../shared/main.sh"
+  print_header "Setting up VSCode extensions ⚙️"
+  zsh "$SCRIPT_DIR/setup-vscode-extensions.sh"
+  print_footer "VSCode extensions set up"
+}
 
-SCRIPT_DIR="$(dirname "$0")"
-
-zsh "$SCRIPT_DIR/../setup-vscode-extensions.sh"
+main $(dirname "$0")

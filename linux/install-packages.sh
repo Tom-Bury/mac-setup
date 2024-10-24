@@ -3,9 +3,10 @@
 PACKAGES=(
   "ffmpeg"
   "fzf"
+  "tree"
 )
 
-install_packages() {
+main() {
   sudo apt-get update
   sudo apt-get upgrade -y
 
@@ -19,5 +20,11 @@ install_packages() {
   done
 
   # Install StarShip
-  curl -sS https://starship.rs/install.sh | sh
+  if ! command -v starship &> /dev/null; then
+    install_starship
+  else
+    echo "" & echo "🚀 Starship is already installed"
+  fi
 }
+
+main
