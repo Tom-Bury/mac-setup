@@ -6,7 +6,6 @@ IGNORE_DIRS=(
     build
     dist
     .bundle
-    local-maven-repository
     Pods
     .gradle
 )

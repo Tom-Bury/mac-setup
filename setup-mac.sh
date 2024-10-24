@@ -31,12 +31,6 @@ killall Dock
 print_footer "OSX preferences set up"
 
 
-print_header "Creating folders 📂"
-safe_create_folder $HOME/personal/code
-safe_create_folder $HOME/work/code
-print_footer "Folders created"
-
-
 print_header "Installing HomeBrew 🍺"
 source "$ROOT_DIR/homebrew/setup-homebrew.sh"
 install_homebrew
