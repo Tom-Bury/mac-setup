@@ -9,3 +9,4 @@ install_packages
 
 zsh "$SCRIPT_DIR/../shared/main.sh"
 
+zsh "$SCRIPT_DIR/../setup-vscode-extensions.sh"
