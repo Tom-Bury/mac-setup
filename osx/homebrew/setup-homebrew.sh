@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
-SCRIPT_DIR="$(dirname "$0")"
 
 install_homebrew() {
   # https://brew.sh/
@@ -14,6 +13,7 @@ install_homebrew() {
 }
 
 download_homebrew_apps() {
+  local SCRIPT_DIR="$(dirname "$0")"
   # Install any Homebrew packages, Mac Apps or VSCode extensions using a Brewfile
   # https://docs.brew.sh/Manpage#bundle-subcommand
   # https://github.com/Homebrew/homebrew-bundle

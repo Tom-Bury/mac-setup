@@ -89,7 +89,6 @@ vscode "ionutvmi.path-autocomplete"
 
 # Frontend development
 vscode "formulahendry.auto-close-tag"
-vscode "nrwl.angular-console"
 vscode "YoavBls.pretty-ts-errors"
 vscode "codeandstuff.package-json-upgrade"
 vscode "dbaeumer.vscode-eslint"
@@ -97,9 +96,8 @@ vscode "firsttris.vscode-jest-runner" # running or debugging a specific test or 
 vscode "Orta.vscode-jest" # running your current test-suite everytime you change it.
 vscode "1YiB.svelte-bundle"
 
-# Native development
-vscode "mathiasfrohlich.Kotlin"
-vscode "vscjava.vscode-gradle"
+# Go
+vscode "golang.Go"
 
 # Infrastructure
 vscode "hashicorp.terraform"
@@ -128,9 +126,6 @@ vscode "waderyan.gitblame"
 
 # Markdown
 vscode "yzhang.markdown-all-in-one"
-vscode "bierner.markdown-mermaid"
-vscode "TakumiI.markdowntable"
-vscode "DavidAnson.vscode-markdownlint"
 vscode "yzane.markdown-pdf"
 vscode "bierner.markdown-preview-github-styles"
 

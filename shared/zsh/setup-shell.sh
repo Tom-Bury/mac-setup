@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
-SCRIPT_DIR="$(dirname "$0")"
+SETUP_SHELL_SCRIPT_DIR="$(dirname "$0")"
+source "$SETUP_SHELL_SCRIPT_DIR/../../utils.sh"
 
 setup_shell() {
   install_oh_my_zsh
@@ -13,9 +14,9 @@ setup_shell() {
   setup_syntax_highlighting
   setup_zsh_autocomplete
 
-  setup_extra_source_scripts
+  setup_extra_source_scripts "$SETUP_SHELL_SCRIPT_DIR"
 
-  source $HOME/.zshrc  
+  source $HOME/.zshrc 
 }
 
 install_oh_my_zsh() {
@@ -30,13 +31,13 @@ setup_starship_prompt() {
   # https://starship.rs/
   # Installed through homebrew
   create_backup "$HOME/.config/starship.toml"
-  cp "$SCRIPT_DIR/starship.toml" "$HOME/.config/starship.toml"
+  cp "$SETUP_SHELL_SCRIPT_DIR/../starship/starship.toml" "$HOME/.config/starship.toml"
 }
 
 setup_zshrc() {
   # Add ZSH config
   create_backup "$HOME/.zshrc"
-  cp "$SCRIPT_DIR/.zshrc" "$HOME/.zshrc"
+  cp "$SETUP_SHELL_SCRIPT_DIR/.zshrc" "$HOME/.zshrc"
   source $HOME/.zshrc
 }
 
@@ -65,30 +66,4 @@ setup_zsh_autocomplete() {
   zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
   zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 8
   zstyle ':autocomplete:history-search-backward:*' list-lines 8
-}
-
-setup_extra_source_scripts() {
-  DEST_DIR="$HOME/zshrc-scripts"
-
-  [ -d "$DEST_DIR" ] || mkdir -p "$DEST_DIR"
-
-  # Define the source files
-  SOURCE_FILES_PREFIX=".zshrc_"
-  SOURCE_FILES=($(find "$SCRIPT_DIR/.." -type f -name "$SOURCE_FILES_PREFIX*.sh"))
-
-  # Loop over the source files
-  for SOURCE_FILE in "${SOURCE_FILES[@]}"; do
-    # Extract the filename from the source file path
-    FILENAME=$(basename "$SOURCE_FILE")
-
-    # Check if the source file exists and copy it
-    if [ -f "$SOURCE_FILE" ]; then
-      cp "$SOURCE_FILE" "$DEST_DIR/$FILENAME"
-    else
-      echo "Source file $SOURCE_FILE does not exist."
-    fi
-
-    # Source it
-    echo "source $DEST_DIR/$FILENAME" >> "$HOME/.zshrc"
-  done
 }
