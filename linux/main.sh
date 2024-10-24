@@ -9,4 +9,6 @@ install_packages
 
 zsh "$SCRIPT_DIR/../shared/main.sh"
 
+SCRIPT_DIR="$(dirname "$0")"
+
 zsh "$SCRIPT_DIR/../setup-vscode-extensions.sh"
